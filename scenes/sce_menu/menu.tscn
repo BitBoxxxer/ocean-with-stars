@@ -1,0 +1,235 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvsue583i7nti"]
+
+[ext_resource type="Script" path="res://scripts/scr_scenes/menu/menu.gd" id="1_ue1rq"]
+[ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_cgb5h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x88uf"]
+bg_color = Color(0, 0, 0, 0.227451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iv8rn"]
+bg_color = Color(0, 0, 0, 0.756863)
+
+[sub_resource type="Animation" id="Animation_l7ua8"]
+resource_name = "FlyAway"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(816, 160), Vector2(784, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(304, 120), Vector2(114, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_w3aw1"]
+resource_name = "Playing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(114, 120), Vector2(304, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(784, 160), Vector2(816, 160)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ff6rv"]
+_data = {
+"FlyAway": SubResource("Animation_l7ua8"),
+"Playing": SubResource("Animation_w3aw1")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytevf"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 10
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1_ue1rq")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_cgb5h")
+autoplay = true
+expand = true
+loop = true
+
+[node name="PanelBlock" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x88uf")
+
+[node name="GameName" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 64.0
+offset_right = 152.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="GameName"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iv8rn")
+
+[node name="Label" type="Label" parent="GameName"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Ocean With Stars"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+root_node = NodePath("../FromStartButts")
+libraries = {
+"": SubResource("AnimationLibrary_ff6rv")
+}
+
+[node name="Hide_Butt" type="MenuButton" parent="."]
+layout_mode = 2
+offset_left = 1016.0
+offset_top = 104.0
+offset_right = 1122.0
+offset_bottom = 160.0
+theme_override_colors/font_pressed_color = Color(0.65098, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "H_PRESS"
+alignment = 2
+
+[node name="BaseButts" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.5
+offset_top = -97.5
+offset_right = 208.5
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseButts"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+theme_override_constants/separation = 5
+
+[node name="StartButt" type="Button" parent="BaseButts/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytevf")
+text = "Start Game"
+
+[node name="OptionsButt" type="Button" parent="BaseButts/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Options
+"
+
+[node name="AuthorsButt" type="Button" parent="BaseButts/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Authors"
+
+[node name="AchievementsButt" type="Button" parent="BaseButts/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Achievements"
+
+[node name="debugButt" type="Button" parent="BaseButts/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "DEBUG_WORLD"
+
+[node name="FromStartButts" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FromStartButts"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NewGameButt" type="Button" parent="FromStartButts/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="ContinueButt" type="Button" parent="FromStartButts/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Hide_Butt" to="." method="_on_hide_butt_pressed"]
+[connection signal="pressed" from="BaseButts/VBoxContainer/StartButt" to="." method="_on_start_butt_pressed"]
+[connection signal="pressed" from="BaseButts/VBoxContainer/OptionsButt" to="." method="_on_options_butt_pressed"]
+[connection signal="pressed" from="BaseButts/VBoxContainer/AuthorsButt" to="." method="_on_authors_butt_pressed"]
+[connection signal="pressed" from="BaseButts/VBoxContainer/AchievementsButt" to="." method="_on_achievements_butt_pressed"]
+[connection signal="pressed" from="BaseButts/VBoxContainer/debugButt" to="." method="_on_debug_butt_pressed"]
+[connection signal="pressed" from="FromStartButts/VBoxContainer/NewGameButt" to="." method="_on_new_game_butt_pressed"]
+[connection signal="pressed" from="FromStartButts/VBoxContainer/ContinueButt" to="." method="_on_continue_butt_pressed"]

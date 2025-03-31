@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcfnfymw37chp"]
+
+[ext_resource type="VideoStream" path="res://visuals/video/for_mobile_screen.ogv" id="1_fhlfr"]
+[ext_resource type="Script" path="res://scripts/another/flip_the_screen_over.gd" id="1_yxowe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_617np"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="FlipTheScreenOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yxowe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_617np")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = -212.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.88, 1)
+stream = ExtResource("1_fhlfr")
+autoplay = true
+expand = true
+loop = true

@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://6u3ra0vito2u"]
+
+[ext_resource type="Script" path="res://scripts/scr_scenes/menu/achievements_menu.gd" id="1_aps1g"]
+[ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_tylam"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmayg"]
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogh2o"]
+bg_color = Color(0, 0, 0, 0.756863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt0ca"]
+bg_color = Color(0, 0, 0, 0.756863)
+
+[node name="achievements_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aps1g")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_tylam")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wmayg")
+
+[node name="MarginContainerAchives" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = 176.0
+offset_right = 568.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainerAchives"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ogh2o")
+
+[node name="Label" type="Label" parent="MarginContainerAchives"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "open achievements"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 130.0
+offset_right = 235.0
+offset_bottom = 330.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="AM_BackButt" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="GameAchivesName" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 64.0
+offset_right = 152.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="GameAchivesName"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bt0ca")
+
+[node name="Label" type="Label" parent="GameAchivesName"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Ocean With Stars
+achievements"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/AM_BackButt" to="." method="_on_am_back_butt_pressed"]

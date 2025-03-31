@@ -1,0 +1,236 @@
+[gd_scene load_steps=13 format=3 uid="uid://4m3hpkvu4qvr"]
+
+[ext_resource type="Script" path="res://scripts/scr_scenes/talkative_scene.gd" id="1_rhekq"]
+[ext_resource type="VideoStream" path="res://visuals/video/SceneTalks.ogv" id="2_53bha"]
+[ext_resource type="PackedScene" uid="uid://3aem4cgjwxay" path="res://scenes/another/trans_screen.tscn" id="3_fh27k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqwwb"]
+bg_color = Color(0, 0, 0, 0.658824)
+
+[sub_resource type="Animation" id="Animation_sy3cn"]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4lfvl"]
+resource_name = "example"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.13333, 3.6, 5.46667, 7.2, 8, 11.1667, 11.5333, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.411, 0.411, 0.722222, 0.780093, 0.789683, 0.945, 0.945, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3w360"]
+resource_name = "exampleSecond"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.014, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttmtt"]
+_data = {
+"RESET": SubResource("Animation_sy3cn"),
+"example": SubResource("Animation_4lfvl"),
+"exampleSecond": SubResource("Animation_3w360")
+}
+
+[sub_resource type="GDScript" id="GDScript_brl2o"]
+script/source = "extends AnimationPlayer
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+"
+
+[sub_resource type="Animation" id="Animation_xm2q5"]
+resource_name = "PlayingButtNext"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(624, 392), Vector2(640, 392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 112), Vector2(256, 112)]
+}
+
+[sub_resource type="Animation" id="Animation_rgqty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(624, 392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, 112)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_misky"]
+_data = {
+"PlayingButtNext": SubResource("Animation_xm2q5"),
+"RESET": SubResource("Animation_rgqty")
+}
+
+[node name="talkative_scene" type="Control"]
+editor_description = "Сцена где будет введено маленткое введение игрока в игру: замедленное появление сцен текста, постепенно угасающее. После игроку нужно будет вписать свое имя.
+"
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1_rhekq")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 219.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.84, 0.88)
+size_flags_horizontal = 8
+stream = ExtResource("2_53bha")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqwwb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.5
+offset_top = -195.5
+offset_right = 352.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Сквозь эту пустоту Вы замечаете что-то впереди — [color=yellow]обломок[/color]. Ваше сердце замирает, 
+когда Вы осознаете, что это, вероятно, [color=yellow]часть Вашей станции[/color]. Вы поднимаете голову и видите, как куски металла медленно вращаются в безвоздушном пространстве, оставляя за собой следы искр и дыма. 
+\\nОбломок догорает, его поверхность покрыта черными пятнами, а красные языки пламени вырываются из щелей, как будто сама станция пытается вырваться из объятий [color=yellow]смерти[/color]."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_ttmtt")
+}
+speed_scale = 0.5
+script = SubResource("GDScript_brl2o")
+
+[node name="SpeedButt" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 408.0
+offset_right = 509.0
+offset_bottom = 488.0
+theme_override_font_sizes/font_size = 30
+text = "Speed it up"
+
+[node name="ContinueButt" type="Button" parent="."]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 392.0
+offset_right = 754.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 30
+text = "Next Text ?"
+
+[node name="CBAnimationPlayer" type="AnimationPlayer" parent="ContinueButt"]
+libraries = {
+"": SubResource("AnimationLibrary_misky")
+}
+
+[node name="LoadLvlButt" type="Button" parent="."]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 392.0
+offset_right = 752.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="TransScreen" parent="." instance=ExtResource("3_fh27k")]
+visible = false
+
+[connection signal="animation_finished" from="RichTextLabel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="SpeedButt" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ContinueButt" to="." method="_on_continue_butt_pressed"]
+[connection signal="animation_finished" from="ContinueButt/CBAnimationPlayer" to="." method="_on_cb_animation_player_animation_finished"]
+[connection signal="pressed" from="LoadLvlButt" to="." method="_on_load_lvl_butt_pressed"]
+[connection signal="transitioned" from="TransScreen" to="." method="_on_trans_screen_transitioned"]

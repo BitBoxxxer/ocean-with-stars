@@ -1,24 +1,32 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
-var moveDir = Vector2(0,0)
+@export var SPEED = 100.0
+@export var JUMP_VELOCITY = -500
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var animation_player = $"Sprite2D/AnimationPlayer"
+@onready var animated_sprite = $"Sprite2D"  # Предполагаю, что ваш спрайт называется "Sprite2D"
 
-func _physics_process(delta):
-	movement(delta)
+func _ready():
+	animation_player.play("RESET")  # начальная анимация
 
-func movement(delta):
-	if Input.is_action_pressed("right"):
-		moveDir.x = 1
-	if Input.is_action_pressed("left"):
-		moveDir.x = -1
-	if Input.is_action_pressed("up"):
-		moveDir.y = -1
-	if Input.is_action_pressed("down"):
-		moveDir.y = 1
+func _physics_process(delta): 
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	if Input.is_action_just_pressed("up") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
+	var direction = Input.get_axis("left", "right")
+	if direction:
+		velocity.x = direction * SPEED
+		if not animation_player.is_playing() or animation_player.current_animation != "walk":
+			animation_player.play("walk")
 		
-	if !Input.is_action_pressed("right") && !Input.is_action_pressed("left"):
-		moveDir.x = 0;
-	if !Input.is_action_pressed("up") && !Input.is_action_pressed("down"):
-		moveDir.y = 0;
+		# Поворот спрайта в нужную сторону
+		animated_sprite.flip_h = direction < 0  # Переворот влево (при отрицательном направлении)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+		if not animation_player.is_playing() or animation_player.current_animation != "RESET":
+			animation_player.play("RESET")
 
-	move_and_collide(moveDir.normalized() * SPEED * delta)
+	move_and_slide()

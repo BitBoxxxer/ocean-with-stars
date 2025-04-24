@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://ct1eyb68bx2xo"]
+[gd_scene load_steps=4 format=3 uid="uid://ct1eyb68bx2xo"]
+
+[ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/player.tscn" id="1_wkupc"]
+[ext_resource type="Texture2D" uid="uid://cp7vemrmjhsli" path="res://sprites/icon.svg" id="2_jj182"]
+[ext_resource type="Script" path="res://scripts/scr_player_stuff/camera_2d.gd" id="3_oxd4d"]
 
 [node name="Space" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wkupc")]
+
+[node name="GODOT_FACE" type="Sprite2D" parent="."]
+position = Vector2(-156, 48)
+texture = ExtResource("2_jj182")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("3_oxd4d")

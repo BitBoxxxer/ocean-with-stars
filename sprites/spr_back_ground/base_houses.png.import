@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3gtng3wn3ejx"
-path="res://.godot/imported/Zdania4.png-4cfb6c7bf3f09cc9d4031a59b3944543.ctex"
+uid="uid://b8q44dpd316sf"
+path="res://.godot/imported/base_houses.png-d757464ebc1f5a2552d943d866d0621d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spr_back_ground/spr_Zdania/Zdania4.png"
-dest_files=["res://.godot/imported/Zdania4.png-4cfb6c7bf3f09cc9d4031a59b3944543.ctex"]
+source_file="res://sprites/spr_back_ground/base_houses.png"
+dest_files=["res://.godot/imported/base_houses.png-d757464ebc1f5a2552d943d866d0621d.ctex"]
 
 [params]
 

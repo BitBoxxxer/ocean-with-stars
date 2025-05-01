@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct1eyb68bx2xo"]
+
+[ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/player.tscn" id="1_asx38"]
+[ext_resource type="Script" path="res://scripts/Maps/tutorial.gd" id="1_gnud0"]
+[ext_resource type="Script" path="res://scripts/Player/camera_2d.gd" id="2_edhqf"]
+[ext_resource type="Texture2D" uid="uid://cp7vemrmjhsli" path="res://sprites/icon.svg" id="3_xpdni"]
+[ext_resource type="PackedScene" uid="uid://dghtlr5thufjy" path="res://scenes/another/door.tscn" id="4_wrtwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxk3g"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_gnud0")
+
+[node name="Player" parent="." instance=ExtResource("1_asx38")]
+position = Vector2(1, 79)
+SPEED = 200.0
+JUMP_VELOCITY = -200
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("2_edhqf")
+
+[node name="GODOT_FACE" type="Sprite2D" parent="."]
+position = Vector2(-102, 75.5)
+scale = Vector2(0.421875, 0.507813)
+texture = ExtResource("3_xpdni")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 113)
+scale = Vector2(45.1273, 0.541201)
+shape = SubResource("RectangleShape2D_rxk3g")
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_E" parent="Doors" instance=ExtResource("4_wrtwl")]
+position = Vector2(-104, 96)
+destination_level_tag = "lobby"
+destination_door_tag = "W"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(2, -18.25)
+
+[node name="spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(130, -16)
+
+[editable path="Doors/Door_E"]

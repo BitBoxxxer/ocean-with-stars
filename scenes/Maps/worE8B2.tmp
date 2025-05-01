@@ -1,0 +1,161 @@
+[gd_scene load_steps=13 format=3 uid="uid://bs8w51rdb2pvq"]
+
+[ext_resource type="Texture2D" uid="uid://dkyew0m38ov0c" path="res://sprites/maps/BG/Zdania1.png" id="1_fw72d"]
+[ext_resource type="Texture2D" uid="uid://b707dbnu4trxe" path="res://sprites/maps/BG/Zdania2.png" id="3_lqi32"]
+[ext_resource type="Script" path="res://scenes/another/scene_trigger.gd" id="5_aorsv"]
+[ext_resource type="Texture2D" uid="uid://bipieigab2lyc" path="res://sprites/maps/BG/Zdania3.png" id="5_yq2x8"]
+[ext_resource type="Texture2D" uid="uid://cootp0emmhbrd" path="res://sprites/maps/Houses/HOUSES_ASE.png" id="7_ce74o"]
+[ext_resource type="PackedScene" uid="uid://dmavxci50sn6p" path="res://scenes/another/scene_trigger.tscn" id="8_v2vxo"]
+[ext_resource type="Script" path="res://scripts/scr_player_stuff/camera_2d.gd" id="10_hys83"]
+[ext_resource type="Texture2D" uid="uid://b8q44dpd316sf" path="res://sprites/maps/BG/base_houses.png" id="11_4kr3f"]
+[ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/player.tscn" id="11_byd51"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh1vo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k42mh"]
+size = Vector2(4.37273, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6dat"]
+size = Vector2(68, 71)
+
+[node name="world" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="PL-4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Panel" type="Panel" parent="ParallaxBackground/PL-4"]
+offset_left = -2408.0
+offset_top = 494.0
+offset_right = -2368.0
+offset_bottom = 534.0
+scale = Vector2(110.627, -67.3875)
+theme_override_styles/panel = SubResource("StyleBoxFlat_oh1vo")
+
+[node name="PL-3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Zdania2" type="Sprite2D" parent="ParallaxBackground/PL-3"]
+texture_filter = 1
+position = Vector2(-2, -1077)
+scale = Vector2(3, 3)
+texture = ExtResource("1_fw72d")
+
+[node name="Zdania3" type="Sprite2D" parent="ParallaxBackground/PL-3"]
+texture_filter = 1
+position = Vector2(-2, -1077)
+scale = Vector2(3, 3)
+texture = ExtResource("1_fw72d")
+offset = Vector2(800, 0)
+
+[node name="PL-2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Zdania3" type="Sprite2D" parent="ParallaxBackground/PL-2"]
+texture_filter = 1
+position = Vector2(0, -1077)
+scale = Vector2(3, 3)
+texture = ExtResource("3_lqi32")
+
+[node name="Zdania4" type="Sprite2D" parent="ParallaxBackground/PL-2"]
+texture_filter = 1
+position = Vector2(0, -1077)
+scale = Vector2(3, 3)
+texture = ExtResource("3_lqi32")
+offset = Vector2(800, 0)
+
+[node name="PL-1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Zdania4" type="Sprite2D" parent="ParallaxBackground/PL-1"]
+texture_filter = 1
+position = Vector2(0, -1077)
+scale = Vector2(3, 3)
+texture = ExtResource("5_yq2x8")
+
+[node name="Zdania5" type="Sprite2D" parent="ParallaxBackground/PL-1"]
+texture_filter = 1
+position = Vector2(0, -1077)
+scale = Vector2(3, 3)
+texture = ExtResource("5_yq2x8")
+offset = Vector2(800, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+limit_left = -1190
+limit_top = -1000
+limit_right = 1200
+limit_bottom = 100
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("10_hys83")
+
+[node name="BaseHouses" type="StaticBody2D" parent="."]
+texture_filter = 1
+position = Vector2(4.50008, -938)
+scale = Vector2(2.99875, 2.6)
+script = ExtResource("5_aorsv")
+
+[node name="House_Left" type="Sprite2D" parent="BaseHouses"]
+position = Vector2(-299.291, 280.519)
+scale = Vector2(1.06815, 1.35427)
+texture = ExtResource("7_ce74o")
+region_enabled = true
+region_rect = Rect2(0, 0, 98, 128)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseHouses/House_Left"]
+
+[node name="House_Left2" type="Sprite2D" parent="BaseHouses"]
+position = Vector2(-208.485, 285.556)
+scale = Vector2(0.994636, 1.27671)
+texture = ExtResource("7_ce74o")
+region_enabled = true
+region_rect = Rect2(98, 0, 80, 128)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseHouses/House_Left2"]
+
+[node name="House_Shop" type="Sprite2D" parent="BaseHouses"]
+position = Vector2(6.50268, 329.423)
+scale = Vector2(1, 1.48077)
+texture = ExtResource("7_ce74o")
+region_enabled = true
+region_rect = Rect2(183.669, 67.5883, 200.331, 60.4117)
+
+[node name="Floor" type="Sprite2D" parent="BaseHouses"]
+texture = ExtResource("11_4kr3f")
+
+[node name="CollisionShape2D1_1" type="CollisionShape2D" parent="BaseHouses"]
+position = Vector2(-351.647, 327.692)
+scale = Vector2(-1.05065, 4.12705)
+shape = SubResource("RectangleShape2D_k42mh")
+
+[node name="CollisionShape2D1_2" type="CollisionShape2D" parent="BaseHouses"]
+position = Vector2(355.982, 330.385)
+scale = Vector2(-1.05065, 4.12705)
+shape = SubResource("RectangleShape2D_k42mh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BaseHouses"]
+position = Vector2(-2.83454, 383.077)
+scale = Vector2(34.8984, 1.48984)
+polygon = PackedVector2Array(-9.96639, -10.5845, -4.89242, -10.5845, -4.55798, -5.93765, 4.6822, -5.93765, 4.91153, -8.7774, 10.2531, -8.7774, 10.2531, 11.1008, 4.70131, 11.1008, -4.55798, 10.8427, -9.96639, 11.359)
+
+[node name="Player" parent="." instance=ExtResource("11_byd51")]
+scale = Vector2(2, 2)
+collision_layer = 9
+safe_margin = 0.001
+SPEED = 200.0
+JUMP_VELOCITY = -200
+
+[node name="SceneTrigger" parent="." instance=ExtResource("8_v2vxo")]
+position = Vector2(-963, -13)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SceneTrigger"]
+z_index = 1
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_u6dat")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c65ld3gomaqil"]
 
-[ext_resource type="Script" path="res://scripts/scr_player_stuff/player.gd" id="1_urcyc"]
-[ext_resource type="Texture2D" uid="uid://dv1h834wgi4lm" path="res://sprites/Sprite-MAN_Walllking.png" id="2_pd7gi"]
+[ext_resource type="Script" path="res://scripts/Player/player.gd" id="1_urcyc"]
+[ext_resource type="Texture2D" uid="uid://dv1h834wgi4lm" path="res://sprites/player/Sprite-MAN_Walllking.png" id="2_pd7gi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpyx2"]
 size = Vector2(10, 23)

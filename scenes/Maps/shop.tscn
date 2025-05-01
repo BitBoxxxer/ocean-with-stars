@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://btj184v875xuh"]
+
+[ext_resource type="Texture2D" uid="uid://bth26uo2qfy2t" path="res://sprites/picters/Pixel Art_ Toronto.png" id="1_u3821"]
+
+[node name="Node2D" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(572, 312)
+scale = Vector2(1.57609, 1)
+texture = ExtResource("1_u3821")

@@ -19,19 +19,23 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
+	var current_speed = SPEED
+	if Input.is_action_pressed("run"):
+		current_speed *= 1.5
+	
 	var direction = Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * current_speed
 		if not animation_player.is_playing() or animation_player.current_animation != "walk":
 			animation_player.play("walk")
 		
 		animated_sprite.flip_h = direction < 0  # Переворот влево (при отрицательном направлении)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+		velocity.x = move_toward(velocity.x, 0, current_speed * delta)
 		if not animation_player.is_playing() or animation_player.current_animation != "RESET":
 			animation_player.play("RESET")
 			velocity.x = 0 # чтобы не скользил.
 	move_and_slide()
 
-func _on_spawn(position: Vector2, direction: String):
+func _on_spawn(position: Vector2, _direction: String):
 	global_position = position

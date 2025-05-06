@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxl54007uixnq"]
+
+[ext_resource type="Script" path="res://scripts/Maps/animations/left_2.gd" id="1_3amba"]
+[ext_resource type="Texture2D" uid="uid://cootp0emmhbrd" path="res://sprites/maps/House/HOUSES_ASE.png" id="2_fsgcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg6bu"]
+size = Vector2(59.6915, 25.7692)
+
+[sub_resource type="Animation" id="Animation_4wa1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Screen/HoloScreen:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_c4pei"]
+resource_name = "play"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Screen/HoloScreen:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txbge"]
+_data = {
+"RESET": SubResource("Animation_4wa1b"),
+"play": SubResource("Animation_c4pei")
+}
+
+[node name="Screen" type="Area2D"]
+script = ExtResource("1_3amba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-206.086, 354.808)
+shape = SubResource("RectangleShape2D_wg6bu")
+
+[node name="HoloScreen" type="Sprite2D" parent="."]
+position = Vector2(-208.587, 357.692)
+scale = Vector2(0.929557, 1.20915)
+texture = ExtResource("2_fsgcc")
+hframes = 3
+vframes = 2
+region_enabled = true
+region_rect = Rect2(207.991, 41.9933, 102.011, 22.0085)
+
+[node name="AP" type="AnimationPlayer" parent="HoloScreen"]
+root_node = NodePath("../../../Tower")
+libraries = {
+"": SubResource("AnimationLibrary_txbge")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_finished" from="HoloScreen/AP" to="." method="_on_ap_animation_finished"]

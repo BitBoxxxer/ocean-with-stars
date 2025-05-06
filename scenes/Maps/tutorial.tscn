@@ -1,50 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct1eyb68bx2xo"]
+[gd_scene load_steps=5 format=3 uid="uid://ct1eyb68bx2xo"]
 
 [ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/player.tscn" id="1_asx38"]
-[ext_resource type="Script" path="res://scripts/Maps/tutorial.gd" id="1_gnud0"]
 [ext_resource type="Script" path="res://scripts/Player/camera_2d.gd" id="2_edhqf"]
 [ext_resource type="Texture2D" uid="uid://cp7vemrmjhsli" path="res://sprites/icon.svg" id="3_xpdni"]
 [ext_resource type="PackedScene" uid="uid://dghtlr5thufjy" path="res://scenes/another/door.tscn" id="4_wrtwl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxk3g"]
-
 [node name="World" type="Node2D"]
-script = ExtResource("1_gnud0")
 
 [node name="Player" parent="." instance=ExtResource("1_asx38")]
 position = Vector2(1, 79)
-SPEED = 200.0
 JUMP_VELOCITY = -200
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-8, -61)
+zoom = Vector2(1.5, 1.5)
 process_callback = 0
+limit_left = -900
+limit_top = -800
+limit_right = 900
+limit_bottom = 140
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("2_edhqf")
 
-[node name="GODOT_FACE" type="Sprite2D" parent="."]
-position = Vector2(-102, 75.5)
-scale = Vector2(0.421875, 0.507813)
-texture = ExtResource("3_xpdni")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, 113)
-scale = Vector2(45.1273, 0.541201)
-shape = SubResource("RectangleShape2D_rxk3g")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(97.3671, 117)
+scale = Vector2(1.22792, 1)
+polygon = PackedVector2Array(129.188, -138, 121.045, -138, 114.529, -62, 50.193, -60, 48.5642, 3, 25.92, 3, 25.7614, -16, -27.9881, -16, -28.1803, 3, -428.666, 3, -427.852, -118, -443.325, -118, -441.696, 23, 134.075, 27)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 
 [node name="Doors" type="Node" parent="."]
 
-[node name="Door_E" parent="Doors" instance=ExtResource("4_wrtwl")]
-position = Vector2(-104, 96)
+[node name="Door_Q" parent="Doors" instance=ExtResource("4_wrtwl")]
+position = Vector2(-391, 90)
 destination_level_tag = "lobby"
-destination_door_tag = "W"
+destination_door_tag = "E"
 
-[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(2, -18.25)
+[node name="Collision" parent="Doors/Door_Q" index="0"]
+position = Vector2(0, -2.40625)
 
-[node name="spawn" parent="Doors/Door_E" index="1"]
-position = Vector2(130, -16)
+[node name="spawn" parent="Doors/Door_Q" index="1"]
+position = Vector2(173, -18.5)
 
-[editable path="Doors/Door_E"]
+[node name="Sprite2D" parent="Doors/Door_Q" index="2"]
+position = Vector2(1.99999, -2.50003)
+scale = Vector2(0.5, 0.515625)
+texture = ExtResource("3_xpdni")
+
+[editable path="Doors/Door_Q"]

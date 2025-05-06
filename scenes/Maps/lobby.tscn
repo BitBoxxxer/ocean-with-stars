@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1r33nt07je4i"]
+[gd_scene load_steps=12 format=3 uid="uid://bnujdkh00idoc"]
 
 [ext_resource type="Texture2D" uid="uid://dkyew0m38ov0c" path="res://sprites/maps/BG/Zdania1.png" id="2_3xxox"]
 [ext_resource type="Texture2D" uid="uid://b707dbnu4trxe" path="res://sprites/maps/BG/Zdania2.png" id="3_ivp4y"]
 [ext_resource type="Texture2D" uid="uid://bipieigab2lyc" path="res://sprites/maps/BG/Zdania3.png" id="4_q158s"]
 [ext_resource type="Script" path="res://scripts/Player/camera_2d.gd" id="5_7ga7n"]
 [ext_resource type="Texture2D" uid="uid://cootp0emmhbrd" path="res://sprites/maps/House/HOUSES_ASE.png" id="6_1hdx0"]
+[ext_resource type="PackedScene" uid="uid://bxl54007uixnq" path="res://scenes/Maps/animations/screen.tscn" id="6_ndjeq"]
 [ext_resource type="Texture2D" uid="uid://b8q44dpd316sf" path="res://sprites/maps/BG/base_houses.png" id="7_262wx"]
 [ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/player.tscn" id="8_lptp0"]
 [ext_resource type="PackedScene" uid="uid://dghtlr5thufjy" path="res://scenes/another/door.tscn" id="9_umfrf"]
@@ -23,9 +24,6 @@ func _on_body_entered(_body):
 func _on_body_exited(_body):
 	print(\"outside\")
 "
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k42mh"]
-size = Vector2(4.37273, 20)
 
 [node name="World" type="Node2D"]
 
@@ -94,76 +92,42 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_q158s")
 offset = Vector2(800, 0)
 
-[node name="BaseHouses" type="StaticBody2D" parent="."]
+[node name="BaseMapSprites" type="StaticBody2D" parent="."]
 texture_filter = 1
 position = Vector2(4.50008, -938)
 scale = Vector2(2.99875, 2.6)
 script = SubResource("GDScript_wv5s6")
 
-[node name="House_Left" type="Sprite2D" parent="BaseHouses"]
+[node name="Left" type="Sprite2D" parent="BaseMapSprites"]
 position = Vector2(-299.291, 327.442)
 scale = Vector2(1.06815, 1.35427)
 texture = ExtResource("6_1hdx0")
 region_enabled = true
 region_rect = Rect2(0, 68.9284, 98, 59.0716)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseHouses/House_Left"]
-
-[node name="House_Left2" type="Sprite2D" parent="BaseHouses"]
-position = Vector2(-208.485, 285.556)
-scale = Vector2(0.994636, 1.27671)
-texture = ExtResource("6_1hdx0")
-region_enabled = true
-region_rect = Rect2(98, 0, 80, 128)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseHouses/House_Left2"]
-
-[node name="House_Shop" type="Sprite2D" parent="BaseHouses"]
+[node name="Shop" type="Sprite2D" parent="BaseMapSprites"]
 position = Vector2(6.50268, 329.423)
 scale = Vector2(1, 1.48077)
 texture = ExtResource("6_1hdx0")
 region_enabled = true
 region_rect = Rect2(183.669, 67.5883, 200.331, 60.4117)
 
-[node name="Floor" type="Sprite2D" parent="BaseHouses"]
+[node name="Floor" type="Sprite2D" parent="BaseMapSprites"]
 texture = ExtResource("7_262wx")
 
-[node name="CollisionShape2D1_1" type="CollisionShape2D" parent="BaseHouses"]
-position = Vector2(-351.647, 327.692)
-scale = Vector2(-1.05065, 4.12705)
-shape = SubResource("RectangleShape2D_k42mh")
-
-[node name="CollisionShape2D1_2" type="CollisionShape2D" parent="BaseHouses"]
-position = Vector2(355.982, 330.385)
-scale = Vector2(-1.05065, 4.12705)
-shape = SubResource("RectangleShape2D_k42mh")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BaseHouses"]
+[node name="PoligonFloor2" type="CollisionPolygon2D" parent="BaseMapSprites"]
 position = Vector2(-2.83454, 383.077)
 scale = Vector2(34.8984, 1.48984)
-polygon = PackedVector2Array(-9.96639, -10.5845, -4.89242, -10.5845, -4.55798, -5.93765, 4.6822, -5.93765, 4.91153, -8.7774, 10.2531, -8.7774, 10.2531, 11.1008, 4.70131, 11.1008, -4.55798, 10.8427, -9.96639, 11.359)
+polygon = PackedVector2Array(-10.0715, -64.7979, -9.92818, -64.7979, -9.92818, -10.5846, -4.89242, -10.5845, -4.55798, -5.93765, 4.6822, -5.93765, 4.91153, -8.7774, 10.2148, -8.77745, 10.2148, -62.9908, 10.3486, -62.9908, 10.3486, 10.8426, 4.70131, 11.1008, -4.55798, 10.8427, -10.0715, 11.1008)
 
-[node name="Doors" type="Node" parent="."]
+[node name="Tower" type="Sprite2D" parent="BaseMapSprites"]
+position = Vector2(-208.485, 285.556)
+scale = Vector2(0.994636, 1.27671)
+texture = ExtResource("6_1hdx0")
+region_enabled = true
+region_rect = Rect2(98, 0, 80, 128)
 
-[node name="Door_W" parent="Doors" instance=ExtResource("9_umfrf")]
-position = Vector2(-881, -19)
-destination_level_tag = "level_1"
-destination_door_tag = "E"
-
-[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-12, -9)
-scale = Vector2(1.79949, 2.09066)
-
-[node name="spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(118, -62)
-
-[node name="Player" parent="." instance=ExtResource("8_lptp0")]
-position = Vector2(-768, -56)
-scale = Vector2(2, 2)
-collision_layer = 8
-safe_margin = 0.001
-SPEED = 200.0
-JUMP_VELOCITY = -200
+[node name="Screen" parent="BaseMapSprites" instance=ExtResource("6_ndjeq")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-771, -69)
@@ -176,4 +140,35 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("5_7ga7n")
 
-[editable path="Doors/Door_W"]
+[node name="Player" parent="." instance=ExtResource("8_lptp0")]
+position = Vector2(-768, -56)
+scale = Vector2(2, 2)
+safe_margin = 0.001
+SPEED = 200.0
+JUMP_VELOCITY = -200
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_E" parent="Doors" instance=ExtResource("9_umfrf")]
+position = Vector2(-958, -13)
+destination_level_tag = "tut"
+destination_door_tag = "Q"
+spawn_direction = "down"
+
+[node name="Collision" parent="Doors/Door_E" index="0"]
+position = Vector2(-4.5, -2)
+
+[node name="spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(251, -65)
+
+[node name="Sprite2D" parent="Doors/Door_E" index="2"]
+visibility_layer = 2
+texture_filter = 1
+position = Vector2(-3.00001, 2)
+scale = Vector2(3.27273, 3.52941)
+texture = ExtResource("6_1hdx0")
+region_enabled = true
+region_rect = Rect2(194.817, 15.3815, 23.8991, 17.5335)
+
+[editable path="BaseMapSprites/Screen"]
+[editable path="Doors/Door_E"]

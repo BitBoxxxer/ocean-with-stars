@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnujdkh00idoc"]
+[gd_scene load_steps=13 format=3 uid="uid://bnujdkh00idoc"]
 
 [ext_resource type="Texture2D" uid="uid://dkyew0m38ov0c" path="res://sprites/maps/BG/Zdania1.png" id="2_3xxox"]
 [ext_resource type="Texture2D" uid="uid://b707dbnu4trxe" path="res://sprites/maps/BG/Zdania2.png" id="3_ivp4y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cootp0emmhbrd" path="res://sprites/maps/House/HOUSES_ASE.png" id="6_1hdx0"]
 [ext_resource type="PackedScene" uid="uid://bxl54007uixnq" path="res://scenes/Maps/animations/screen.tscn" id="6_ndjeq"]
 [ext_resource type="Texture2D" uid="uid://b8q44dpd316sf" path="res://sprites/maps/BG/base_houses.png" id="7_262wx"]
+[ext_resource type="PackedScene" uid="uid://cm2pw3u61iula" path="res://scenes/Player/Inventory/Inventory.tscn" id="8_do7o3"]
 [ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/player.tscn" id="8_lptp0"]
 [ext_resource type="PackedScene" uid="uid://dghtlr5thufjy" path="res://scenes/another/door.tscn" id="9_umfrf"]
 
@@ -130,7 +131,8 @@ region_rect = Rect2(98, 0, 80, 128)
 [node name="Screen" parent="BaseMapSprites" instance=ExtResource("6_ndjeq")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-771, -69)
+position = Vector2(-47, -366)
+zoom = Vector2(0.7, 0.7)
 process_callback = 0
 limit_left = -1190
 limit_top = -1000
@@ -139,6 +141,9 @@ limit_bottom = 100
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("5_7ga7n")
+
+[node name="Inventory" parent="Camera2D" instance=ExtResource("8_do7o3")]
+position = Vector2(52, -251)
 
 [node name="Player" parent="." instance=ExtResource("8_lptp0")]
 position = Vector2(-768, -56)

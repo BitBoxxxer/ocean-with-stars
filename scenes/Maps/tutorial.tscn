@@ -18,7 +18,7 @@ process_callback = 0
 limit_left = -900
 limit_top = -800
 limit_right = 900
-limit_bottom = 140
+limit_bottom = 170
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("2_edhqf")
@@ -28,7 +28,7 @@ script = ExtResource("2_edhqf")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(97.3671, 117)
 scale = Vector2(1.22792, 1)
-polygon = PackedVector2Array(129.188, -138, 121.045, -138, 114.529, -62, 50.193, -60, 48.5642, 3, 25.92, 3, 25.7614, -16, -27.9881, -16, -28.1803, 3, -428.666, 3, -427.852, -118, -443.325, -118, -441.696, 23, 134.075, 27)
+polygon = PackedVector2Array(129.188, -138, 121.045, -138, 114.529, -62, 50.193, -60, 48.5642, 3, 25.92, 3, 25.7614, -16, -27.9881, -16, -28.1803, 3, -428.666, 3, -427.852, -118, -443.325, -118, -441.696, 60, 134.075, 61)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 

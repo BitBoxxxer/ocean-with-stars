@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bth26uo2qfy2t" path="res://sprites/picters/Pixel Art_ Toronto.png" id="1_u3821"]
 
-[node name="Node2D" type="Node"]
+[node name="Shop" type="Node"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(572, 312)
-scale = Vector2(1.57609, 1)
+[node name="Back_G" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.56522, 0.880435)
 texture = ExtResource("1_u3821")

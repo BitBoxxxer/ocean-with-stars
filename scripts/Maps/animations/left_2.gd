@@ -12,6 +12,8 @@ func _on_body_entered(body):
 		player_in_area = true
 		if animation_player:
 			animation_player.play("play")
+		if Input.is_action_just_pressed("activate"):
+			null ### для диалогового окна.
 
 func _on_body_exited(body):
 	if body is Player:

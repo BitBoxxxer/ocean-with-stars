@@ -14,7 +14,7 @@ func _ready():
 		animation_player.play("RESET")
 
 func _process(_delta):
-	if player_in_area and Input.is_action_just_pressed("next"):
+	if player_in_area and Input.is_action_just_pressed("activate"):
 		DoorsManager.call_deferred("go_to_level", destination_level_tag, destination_door_tag)
 
 func _on_body_entered(body):

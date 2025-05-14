@@ -2,6 +2,7 @@ extends Node
 
 const scene_lobby = ("res://scenes/Maps/lobby.tscn")
 const scene_tutorial = ("res://scenes/Maps/tutorial.tscn")
+const scene_shop = ("res://scenes/Maps/shop.tscn")
 
 signal on_trigger_player_spawn
 
@@ -15,7 +16,9 @@ func go_to_level(level_tag, dest_tag):
 			scene_to_load = scene_lobby
 		"tut":
 			scene_to_load = scene_tutorial
-			
+		"shop":
+			scene_to_load = scene_shop
+		
 	if scene_to_load != null:
 		spawn_door_tag = dest_tag
 		get_tree().change_scene_to_file(scene_to_load)

@@ -3,20 +3,20 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Логотип" width="250" height="80">
+	<img src="images/logo.png" alt="Логотип" width="250" height="80">
   </a>
 
   <h3 align="center">2D пиксельная Игра</h3>
 
   <p align="center">
-    2D Игровой проект для Android, IOS, Windows
-    <br />
-    <a href="https://github.com/BitBoxxxer/ocean-with-stars"><strong>Изучите документацию »</strong></a>
-    <br />
-    <br />
-    &middot;
-    <a href="#readme-author">Связаться с автором</a>
-    &middot;
+	2D Игровой проект для Android, IOS, Windows
+	<br />
+	<a href="https://github.com/BitBoxxxer/ocean-with-stars"><strong>Изучите документацию »</strong></a>
+	<br />
+	<br />
+	&middot;
+	<a href="#readme-author">Связаться с автором</a>
+	&middot;
   </p>
 </div>
 
@@ -27,15 +27,15 @@
 <details>
   <summary>Содержание</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">О проекте</a>
-    </li>
-    <li>
-      <a href="#getting-started">Установка</a>
-    </li>
-    <li><a href="#roadmap">План развития</a></li>
-    <li><a href="#license">Лицензия</a></li>
-    <li><a href="#contact">Контакты автора</a></li>
+	<li>
+	  <a href="#about-the-project">О проекте</a>
+	</li>
+	<li>
+	  <a href="#getting-started">Установка</a>
+	</li>
+	<li><a href="#roadmap">План развития</a></li>
+	<li><a href="#license">Лицензия</a></li>
+	<li><a href="#contact">Контакты автора</a></li>
   </ol>
 </details>
 

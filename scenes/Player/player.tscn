@@ -62,3 +62,40 @@ frame = 1
 libraries = {
 "": SubResource("AnimationLibrary_y0t73")
 }
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+text = "100"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -40.0
+offset_right = 91.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="1" type="TabContainer" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="2" type="TabContainer" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="3" type="TabContainer" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="4" type="TabContainer" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2

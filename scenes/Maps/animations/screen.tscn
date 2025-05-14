@@ -47,11 +47,11 @@ _data = {
 script = ExtResource("1_3amba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-206.086, 354.808)
+position = Vector2(38.3035, 29.7664)
 shape = SubResource("RectangleShape2D_wg6bu")
 
 [node name="HoloScreen" type="Sprite2D" parent="."]
-position = Vector2(-208.587, 357.692)
+position = Vector2(35.8025, 32.6503)
 scale = Vector2(0.929557, 1.20915)
 texture = ExtResource("2_fsgcc")
 hframes = 3

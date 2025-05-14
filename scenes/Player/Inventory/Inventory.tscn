@@ -1,41 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm2pw3u61iula"]
+[gd_scene load_steps=2 format=3 uid="uid://dlbquecfiwgdd"]
 
-[ext_resource type="Script" path="res://scripts/Player/Inventory/inventory.gd" id="1_dstw3"]
-[ext_resource type="PackedScene" uid="uid://bmcug4j2vs1sr" path="res://scenes/NPC/fish.tscn" id="2_j4xhb"]
-[ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="2_v8rg1"]
-[ext_resource type="Script" path="res://scripts/Player/Inventory/hand.gd" id="3_4ksmf"]
+[ext_resource type="Script" path="res://scripts/Player/inventory/inventory.gd" id="1_ip3pt"]
 
 [node name="Inventory" type="Node2D"]
-script = ExtResource("1_dstw3")
+script = ExtResource("1_ip3pt")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = -19.0
-offset_top = -84.0
-offset_right = 21.0
-offset_bottom = -44.0
-scale = Vector2(13.2, 6.16)
-
-[node name="texture" type="Sprite2D" parent="."]
-position = Vector2(250, 37)
-scale = Vector2(1.76543, 1.64162)
-texture = ExtResource("2_v8rg1")
-region_enabled = true
-region_rect = Rect2(34.1091, 39.532, 324.599, 173.484)
-
-[node name="Fish" parent="." instance=ExtResource("2_j4xhb")]
-position = Vector2(274, 140)
-
-[node name="Fish2" parent="." instance=ExtResource("2_j4xhb")]
-position = Vector2(474, 130)
-
-[node name="Fish3" parent="." instance=ExtResource("2_j4xhb")]
-position = Vector2(409, 136)
-
-[node name="Fish4" parent="." instance=ExtResource("2_j4xhb")]
-position = Vector2(341, 136)
-
-[node name="hand" type="Node2D" parent="."]
-script = ExtResource("3_4ksmf")
-
-[node name="item_icon" type="Sprite2D" parent="hand"]
-z_index = 1
+offset_right = 426.0
+offset_bottom = 242.0

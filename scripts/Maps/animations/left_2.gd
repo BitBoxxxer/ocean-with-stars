@@ -19,8 +19,7 @@ func _on_body_exited(body):
 		if animation_player:
 			animation_player.play("RESET")
 
-
-func _on_ap_animation_finished(anim_name: StringName) -> void:
+func _on_ap_animation_finished(_anim_name):
 	if (player_in_area == true):
 		if animation_player:
 			animation_player.play("play")

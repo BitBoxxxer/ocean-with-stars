@@ -29,13 +29,13 @@ func _physics_process(delta):
 		if not animation_player.is_playing() or animation_player.current_animation != "walk":
 			animation_player.play("walk")
 		
-		animated_sprite.flip_h = direction < 0  # Переворот влево (при отрицательном направлении)
+		animated_sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed * delta)
 		if not animation_player.is_playing() or animation_player.current_animation != "RESET":
 			animation_player.play("RESET")
-			velocity.x = 0 # чтобы не скользил.
+			velocity.x = 0
 	move_and_slide()
 
-func _on_spawn(position: Vector2, _direction: String):
+func _on_spawn(_direction: String):
 	global_position = position

@@ -23,6 +23,7 @@ buses/default_bus_layout="res://visuals/default_bus_layout.tres"
 
 BgMusic="*res://scenes/another/bg_music.tscn"
 DoorsManager="*res://scripts/another/doors/doors_manager.gd"
+Inventory="*res://scripts/Player/inventory/inventory.gd"
 
 [display]
 

@@ -1,24 +1,19 @@
 extends Node2D
 
-var inventory =[]
+const ITEM_SLOT = preload("res://scenes/Player/inventory/ItemSlot.tscn")
 
-signal inventory_update
-var player_node: Node = null
+var row_size = 10
+var col_size = 3
+var items = []
 
 func _ready():
-	inventory.resize(30)
-
-func add_items(item):
-	for i in range(inventory.size()):
-		if inventory[i] != null and inventory[i]["type"] == item["type"]:
-			inventory[i]["quantity"] == item["quantity"]
-			inventory_update.emit()
-			return true
-		elif inventory[i] == null:
-			inventory[i] = item
-			inventory_update.emit()
-			return true
-		return false
-
-func remove_items():
-	inventory_update.emit()
+	for x in range(row_size):
+		items.append([])
+		for y in range(col_size):
+			items[x].append([])
+			
+			var instance = ITEM_SLOT.instantiate()
+			instance.global_position = Vector2(x*50,y*50)
+			instance.slot_num = Vector2i(x,y)
+			add_child(instance)
+			items[x][y] = instance

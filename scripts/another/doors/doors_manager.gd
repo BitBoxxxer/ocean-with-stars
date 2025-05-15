@@ -20,6 +20,8 @@ func go_to_level(level_tag, dest_tag):
 			scene_to_load = scene_shop
 		
 	if scene_to_load != null:
+		TransScreen.transition()
+		await TransScreen.on_transition_finish
 		spawn_door_tag = dest_tag
 		get_tree().change_scene_to_file(scene_to_load)
 

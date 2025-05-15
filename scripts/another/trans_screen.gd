@@ -1,15 +1,20 @@
 extends CanvasLayer
 
-signal transitioned
+signal on_transition_finish
 
-func transition():
-	$AnimationPlayer.play("to_black")
-	print("переход в жопу негра")
+@onready var color_rect = $ColorRect
+@onready var animation_player = $AnimationPlayer
+
+func _ready():
+	color_rect.visible = false
 
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "to_black"):
-		print("использование сигнала перехода [to_black]")
-		emit_signal("transitioned")
-		$AnimationPlayer.play("to_norm")
+		on_transition_finish.emit()
+		animation_player.play("to_norm")
 	if (anim_name == "to_norm"):
-		print("завершение перехода [to_norm]")
+		color_rect.visible = false
+
+func transition():
+	color_rect.visible = true
+	animation_player.play("to_black")

@@ -15,7 +15,7 @@ config/name_localized={
 "ru": "Океан между звёзд"
 }
 run/main_scene="res://scenes/Menu/menu_lobby.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.3", "C#", "Mobile")
 boot_splash/image="res://images/Shattered-Moon.png"
 config/icon="res://images/Shattered-Moon.png"
 config/windows_native_icon="res://images/Shattered-Moon.ico"
@@ -28,7 +28,7 @@ buses/default_bus_layout="res://visuals/default_bus_layout.tres"
 
 BgMusic="*res://scenes/another/bg_music.tscn"
 DoorsManager="*res://scripts/another/doors/doors_manager.gd"
-Inventory="*res://scripts/Player/inventory/inventory.gd"
+TransScreen="*res://scenes/another/trans_screen.tscn"
 
 [display]
 

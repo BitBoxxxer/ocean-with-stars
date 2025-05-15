@@ -120,13 +120,10 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI/Panel/VBoxContainer"]
+[node name="1" type="Label" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Зайти на базу"
 
-[node name="Label2" type="Label" parent="UI/Panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="UI/Panel/VBoxContainer"]
+[node name="2" type="Label" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Поздароваться с Вазгеном"

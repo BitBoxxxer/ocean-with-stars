@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cootp0emmhbrd" path="res://sprites/maps/House/HOUSES_ASE.png" id="6_1hdx0"]
 [ext_resource type="PackedScene" uid="uid://bxl54007uixnq" path="res://scenes/Maps/animations/screen.tscn" id="6_ndjeq"]
 [ext_resource type="Texture2D" uid="uid://b8q44dpd316sf" path="res://sprites/maps/BG/base_houses.png" id="7_262wx"]
-[ext_resource type="PackedScene" uid="uid://do0elvda2fe3v" path="res://scenes/Player/camera_2d.tscn" id="7_foamy"]
+[ext_resource type="PackedScene" path="res://scenes/Player/camera_2d.tscn" id="7_foamy"]
 [ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/player.tscn" id="8_lptp0"]
 [ext_resource type="PackedScene" uid="uid://dghtlr5thufjy" path="res://scenes/another/door.tscn" id="9_umfrf"]
 
@@ -25,7 +25,7 @@ func _on_body_exited(_body):
 	print(\"outside\")
 "
 
-[node name="World" type="Node2D"]
+[node name="Lobby" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

@@ -15,7 +15,7 @@ config/name_localized={
 "ru": "Океан между звёзд"
 }
 run/main_scene="res://scenes/Menu/menu_lobby.tscn"
-config/features=PackedStringArray("4.3", "C#", "Mobile")
+config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/image="res://images/Shattered-Moon.png"
 config/icon="res://images/Shattered-Moon.png"
 config/windows_native_icon="res://images/Shattered-Moon.ico"

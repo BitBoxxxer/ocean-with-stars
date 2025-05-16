@@ -26,9 +26,11 @@ buses/default_bus_layout="res://visuals/default_bus_layout.tres"
 
 [autoload]
 
-BgMusic="*res://scenes/another/bg_music.tscn"
+PlayerUiScreen="*res://scenes/Player/Player_UI_Screen.tscn"
+UI_Tasks="*res://scripts/Player/tasks/tasks.gd"
+TransScreen="*res://scenes/another/BLACK_trans_screen.tscn"
 DoorsManager="*res://scripts/another/doors/doors_manager.gd"
-TransScreen="*res://scenes/another/trans_screen.tscn"
+BgMusic="*res://scenes/another/bg_music.tscn"
 
 [display]
 

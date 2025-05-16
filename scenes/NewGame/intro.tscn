@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/New_Game/talkative.gd" id="1_oc600"]
 [ext_resource type="VideoStream" path="res://visuals/video/SceneTalks.ogv" id="2_crffc"]
-[ext_resource type="PackedScene" uid="uid://3aem4cgjwxay" path="res://scenes/another/trans_screen.tscn" id="3_nidml"]
+[ext_resource type="PackedScene" uid="uid://3aem4cgjwxay" path="res://scenes/another/BLACK_trans_screen.tscn" id="3_nidml"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqwwb"]
 bg_color = Color(0, 0, 0, 0.658824)
@@ -233,4 +233,3 @@ visible = false
 [connection signal="pressed" from="ContinueButt" to="." method="_on_continue_butt_pressed"]
 [connection signal="animation_finished" from="ContinueButt/CBAnimationPlayer" to="." method="_on_cb_animation_player_animation_finished"]
 [connection signal="pressed" from="LoadLvlButt" to="." method="_on_load_lvl_butt_pressed"]
-[connection signal="transitioned" from="TransScreen" to="." method="_on_trans_screen_transitioned"]

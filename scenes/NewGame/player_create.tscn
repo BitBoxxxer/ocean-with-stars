@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc12wgo638gc5"]
+[gd_scene load_steps=4 format=3 uid="uid://cc12wgo638gc5"]
 
 [ext_resource type="Script" path="res://scripts/Maps/tutorial_level.gd" id="1_gcxxe"]
+[ext_resource type="Script" path="res://scripts/Player/tasks/quest.gd" id="2_481je"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdnuw"]
 bg_color = Color(0, 0, 0, 1)
@@ -24,8 +25,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mdnuw")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center_screen" type="Node" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Center_screen"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -35,10 +45,10 @@ offset_right = 345.5
 offset_bottom = 460.0
 grow_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Center_screen/MarginContainer"]
 layout_mode = 2
 
-[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+[node name="TextEdit" type="TextEdit" parent="Center_screen/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(10, 50)
 layout_mode = 2
 mouse_filter = 1
@@ -49,14 +59,16 @@ caret_blink = true
 caret_blink_interval = 1.5
 draw_spaces = true
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="Center_screen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Select"
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Quest" type="Node" parent="Center_screen"]
+script = ExtResource("2_481je")
+quest_name = "Start_Game"
+quest_desc = "Продите туториал игры"
+reached_goal_text = "Bruh"
+reward_amount = 50
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Center_screen/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

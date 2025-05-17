@@ -18,6 +18,8 @@ var texts = [
 var count = 0
 
 func _on_a_back_butt_pressed():
+	TransScreen.transition()
+	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/menu_lobby.tscn")
 
 func _on_new_text_butt_pressed() -> void:

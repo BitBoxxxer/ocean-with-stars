@@ -17,4 +17,4 @@ func finish_quest() -> void:
 	if quest_status == QuestStatus.reached_goal:
 		quest_status = QuestStatus.finished
 		Q_Box.visible = false
-		UI_PlayerScreen.money_count += money_amount
+		scene_instance_UI.money_count += money_amount

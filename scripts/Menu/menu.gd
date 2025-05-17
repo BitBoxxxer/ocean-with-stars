@@ -27,19 +27,31 @@ func _on_animation_player_animation_finished(anim_name):
 		FromStartButts.visible = false
 
 func _on_options_butt_pressed() -> void:
+	TransScreen.transition()
+	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/options.tscn")
 
 func _on_authors_butt_pressed() -> void:
+	TransScreen.transition()
+	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/authors.tscn")
 
 func _on_achievements_butt_pressed() -> void:
+	TransScreen.transition()
+	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/achievements.tscn")
 
 func _on_debug_butt_pressed() -> void:
+	TransScreen.transition()
+	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")
 
 func _on_new_game_butt_pressed() -> void:
+	TransScreen.transition()
+	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/NewGame/intro.tscn")
 
 func _on_continue_butt_pressed() -> void:
+	TransScreen.transition()
+	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/NewGame/intro.tscn")

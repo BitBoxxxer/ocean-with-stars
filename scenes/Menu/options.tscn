@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfap68057u8ma"]
+[gd_scene load_steps=8 format=3 uid="uid://bfap68057u8ma"]
 
 [ext_resource type="Script" path="res://scripts/Menu/options_menu.gd" id="1_0p1fq"]
 [ext_resource type="AudioStream" uid="uid://wv8s0n317oy1" path="res://visuals/sound/Butyrka_-_Zolotye_kupola_54828420.mp3" id="2_ddt7k"]
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_uyerr"]
+[ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="4_tpfft"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxtbb"]
 bg_color = Color(0, 0, 0, 0.6)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj8iy"]
+bg_color = Color(0, 0, 0, 0.756863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjinw"]
 bg_color = Color(0, 0, 0, 0.756863)
 
 [node name="OptionsMenu" type="Control"]
@@ -170,9 +174,25 @@ offset_right = 152.0
 offset_bottom = 128.0
 grow_horizontal = 2
 
-[node name="Panel" type="Panel" parent="GameOptionsName"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rj8iy")
+[node name="Panel2" type="Sprite2D" parent="GameOptionsName"]
+texture_filter = 1
+position = Vector2(149, 32.5)
+scale = Vector2(1, 0.745455)
+texture = ExtResource("4_tpfft")
+region_enabled = true
+region_rect = Rect2(38, 44.5, 313, 165)
+
+[node name="Panel" type="Panel" parent="GameOptionsName/Panel2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -156.5
+offset_top = -82.5
+offset_right = -156.5
+offset_bottom = -82.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjinw")
 
 [node name="Label" type="Label" parent="GameOptionsName"]
 layout_mode = 2

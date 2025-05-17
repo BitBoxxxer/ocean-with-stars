@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://6u3ra0vito2u"]
+[gd_scene load_steps=7 format=3 uid="uid://6u3ra0vito2u"]
 
 [ext_resource type="Script" path="res://scripts/Menu/achievements_menu.gd" id="1_aps1g"]
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_tylam"]
+[ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="3_gl0er"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmayg"]
 bg_color = Color(0, 0, 0, 0.6)
@@ -9,7 +10,7 @@ bg_color = Color(0, 0, 0, 0.6)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogh2o"]
 bg_color = Color(0, 0, 0, 0.756863)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt0ca"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xpnb"]
 bg_color = Color(0, 0, 0, 0.756863)
 
 [node name="achievements_menu" type="Control"]
@@ -92,9 +93,25 @@ offset_right = 152.0
 offset_bottom = 128.0
 grow_horizontal = 2
 
-[node name="Panel" type="Panel" parent="GameAchivesName"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bt0ca")
+[node name="Panel2" type="Sprite2D" parent="GameAchivesName"]
+texture_filter = 1
+position = Vector2(149, 32.5)
+scale = Vector2(1, 0.745455)
+texture = ExtResource("3_gl0er")
+region_enabled = true
+region_rect = Rect2(38, 44.5, 313, 165)
+
+[node name="Panel" type="Panel" parent="GameAchivesName/Panel2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -156.5
+offset_top = -82.5
+offset_right = -156.5
+offset_bottom = -82.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5xpnb")
 
 [node name="Label" type="Label" parent="GameAchivesName"]
 layout_mode = 2

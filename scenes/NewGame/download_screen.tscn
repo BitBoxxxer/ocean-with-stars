@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckj0s8r3dvuak"]
+[gd_scene load_steps=7 format=3 uid="uid://ckj0s8r3dvuak"]
 
 [ext_resource type="Script" path="res://download_screen.gd" id="1_mhoh7"]
 [ext_resource type="VideoStream" path="res://visuals/video/for_mobile_screen.ogv" id="2_bbig8"]
-[ext_resource type="VideoStream" path="res://visuals/video/galactik.ogv" id="3_n2vav"]
-[ext_resource type="VideoStream" path="res://visuals/video/88476fd44a47341a7c3bdf0da16b50f6.ogv" id="4_v3mll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlfyw"]
 bg_color = Color(0, 0, 0, 1)
@@ -96,51 +94,6 @@ libraries = {
 "": SubResource("AnimationLibrary_76d5o")
 }
 
-[node name="Load" type="Node" parent="Animations"]
-
-[node name="Dowload_text" type="RichTextLabel" parent="Animations/Load"]
-texture_filter = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -38.0
-offset_right = -128.0
-offset_bottom = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Загрузка контента:"
-
-[node name="Galactic" type="VideoStreamPlayer" parent="Animations/Load"]
-offset_right = 633.0
-offset_bottom = 648.0
-stream = ExtResource("3_n2vav")
-expand = true
-loop = true
-
-[node name="Load" type="VideoStreamPlayer" parent="Animations/Load"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -114.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-stream = ExtResource("4_v3mll")
-volume_db = -80.0
-expand = true
-loop = true
-
-[node name="Timer" type="Timer" parent="Animations/Load"]
-wait_time = 5.0
-
 [connection signal="timeout" from="Animations/Mobile/Timer_mob" to="." method="_on_timer_mob_timeout"]
 [connection signal="finished" from="Animations/Mobile/mobile_screen" to="." method="_on_mobile_screen_finished"]
 [connection signal="animation_finished" from="Animations/Mobile/RichTextLabel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="Animations/Load/Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://p1ak8emnhg1s"]
+
+[ext_resource type="Script" path="res://scripts/another/load.gd" id="1_7gh3s"]
+[ext_resource type="VideoStream" path="res://visuals/video/galactik.ogv" id="2_spx5m"]
+[ext_resource type="VideoStream" path="res://visuals/video/88476fd44a47341a7c3bdf0da16b50f6.ogv" id="3_dtutr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pds4w"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Load" type="Node"]
+script = ExtResource("1_7gh3s")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pds4w")
+
+[node name="Dowload_text" type="RichTextLabel" parent="."]
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -38.0
+offset_right = -128.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Загрузка контента:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Galactic" type="VideoStreamPlayer" parent="."]
+offset_right = 633.0
+offset_bottom = 648.0
+stream = ExtResource("2_spx5m")
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Load" type="VideoStreamPlayer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -114.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+stream = ExtResource("3_dtutr")
+volume_db = -80.0
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

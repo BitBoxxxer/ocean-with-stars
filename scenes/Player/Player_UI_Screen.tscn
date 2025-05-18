@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm62ly8edfey3"]
+[gd_scene load_steps=7 format=3 uid="uid://cm62ly8edfey3"]
 
 [ext_resource type="Script" path="res://scripts/Player/UI/Player_UI_Screen.gd" id="1_jqhv8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijeob"]
+bg_color = Color(0, 0, 0, 0.745098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2ims"]
+bg_color = Color(0, 0, 0, 0.745098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdahd"]
+bg_color = Color(0.197937, 0.197937, 0.197937, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrs6k"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7fpu"]
+bg_color = Color(0, 0, 0, 0.745098)
 
 [node name="Player_UI_Screen" type="Node"]
 script = ExtResource("1_jqhv8")
@@ -14,6 +29,7 @@ anchor_right = 1.0
 offset_left = -300.0
 offset_bottom = 200.0
 grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ijeob")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tasks/Panel"]
 layout_mode = 1
@@ -54,31 +70,47 @@ grow_vertical = 0
 [node name="inv" type="TabContainer" parent="HotBar/butts_down"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2ims")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_qdahd")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_vrs6k")
 
 [node name="hot" type="HBoxContainer" parent="HotBar/butts_down"]
-layout_mode = 2
-
-[node name="1" type="TabContainer" parent="HotBar/butts_down/hot"]
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="2" type="TabContainer" parent="HotBar/butts_down/hot"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2ims")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_qdahd")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_vrs6k")
 
 [node name="3" type="TabContainer" parent="HotBar/butts_down/hot"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2ims")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_qdahd")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_vrs6k")
 
 [node name="4" type="TabContainer" parent="HotBar/butts_down/hot"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2ims")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_qdahd")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_vrs6k")
+
+[node name="5" type="TabContainer" parent="HotBar/butts_down/hot"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2ims")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_qdahd")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_vrs6k")
 
 [node name="Indicators" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="Indicators"]
 offset_right = 300.0
 offset_bottom = 140.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y7fpu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Indicators/Panel"]
 layout_mode = 1

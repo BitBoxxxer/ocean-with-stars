@@ -1,23 +1,28 @@
 extends Control
 
-@onready var Animated = get_node("AnimationPlayer")
-@onready var HideButton = get_node("Hide_Butt")
-@onready var FromStartButts = get_node("FromStartButts")
-@onready var PanelBlock = get_node("PanelBlock")
+@onready var Animated = get_node("Left/AnimationPlayer")
+@onready var HideButton = get_node("Left/Hide_Butt")
+@onready var FromStartButts = get_node("Left/FromStartButts")
+@onready var PanelBlock = get_node("BG/PanelBlock")
+@onready var panel_block_left: Panel = $BG/PanelBlockLeft
+@onready var animation_player: AnimationPlayer = $BG/PanelBlockLeft/AnimationPlayer
 
 func _ready():
 	HideButton.visible = false
 	FromStartButts.visible = false
 	PanelBlock.visible = false
+	panel_block_left.visible = false
 
 func _on_start_butt_pressed():
 	PanelBlock.visible = true
+	panel_block_left.visible = true
+	animation_player.play("Black")
 	Animated.play("Playing")
 	FromStartButts.visible = true
 
 func _on_hide_butt_pressed():
 	HideButton.hide()
-	PanelBlock.visible = false
+	animation_player.play("Norm")
 	Animated.play("FlyAway")
 
 func _on_animation_player_animation_finished(anim_name):
@@ -25,6 +30,8 @@ func _on_animation_player_animation_finished(anim_name):
 		HideButton.show()
 	if (anim_name == "FlyAway"):
 		FromStartButts.visible = false
+		PanelBlock.visible = false
+		panel_block_left.visible = false
 
 func _on_options_butt_pressed() -> void:
 	TransScreen.transition()

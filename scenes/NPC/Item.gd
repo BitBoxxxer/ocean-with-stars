@@ -28,9 +28,9 @@ func pickup_item():
 		"item_texture": item_texture,
 		"scene_path": scene_path
 	}
-	if Inventory.player_node:
-		Inventory.add_items(item)
-		self.queue_free()
+	#if Inventory.player_node:
+		#Inventory.add_items(item)
+		#self.queue_free()
 
 func _on_area_2d_body_entered(body):
 	player_in_range = true

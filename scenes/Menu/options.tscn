@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bfap68057u8ma"]
 
 [ext_resource type="Script" path="res://scripts/Menu/options_menu.gd" id="1_0p1fq"]
-[ext_resource type="AudioStream" uid="uid://wv8s0n317oy1" path="res://visuals/sound/Butyrka_-_Zolotye_kupola_54828420.mp3" id="2_ddt7k"]
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_uyerr"]
+[ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="4_m142g"]
 [ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="4_tpfft"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxtbb"]
@@ -23,8 +23,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0p1fq")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
+[node name="BG" type="Node" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BG"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,8 +36,7 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="Panel" type="Panel" parent="BG"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,41 +44,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jxtbb")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -249.0
-offset_top = 200.0
-offset_right = -8.0
-offset_bottom = -40.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_vertical = 4
+[node name="Center" type="Node" parent="."]
 
-[node name="Panel2" type="Panel" parent="MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rj8iy")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Mute
-Background Music  "
-
-[node name="BackButt" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 30
-text = "Back"
-
-[node name="MarginContainerVolume" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="MarginContainerVolume" type="MarginContainer" parent="Center"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -92,89 +60,85 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
 
-[node name="screen" type="MarginContainer" parent="MarginContainerVolume"]
+[node name="screen" type="MarginContainer" parent="Center/MarginContainerVolume"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Panel" type="Panel" parent="MarginContainerVolume/screen"]
+[node name="Panel" type="Panel" parent="Center/MarginContainerVolume/screen"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rj8iy")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainerVolume/screen"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Center/MarginContainerVolume/screen"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="FullScreen" type="CheckButton" parent="MarginContainerVolume/screen/VBoxContainer2"]
+[node name="FullScreen" type="CheckButton" parent="Center/MarginContainerVolume/screen/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "FullScreen"
 
-[node name="BorderLess" type="CheckButton" parent="MarginContainerVolume/screen/VBoxContainer2"]
+[node name="BorderLess" type="CheckButton" parent="Center/MarginContainerVolume/screen/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "BorderLess
 "
 
-[node name="VSync" type="CheckButton" parent="MarginContainerVolume/screen/VBoxContainer2"]
+[node name="VSync" type="CheckButton" parent="Center/MarginContainerVolume/screen/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "VSync"
 
-[node name="music" type="MarginContainer" parent="MarginContainerVolume"]
+[node name="music" type="MarginContainer" parent="Center/MarginContainerVolume"]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Panel" type="Panel" parent="MarginContainerVolume/music"]
+[node name="Panel" type="Panel" parent="Center/MarginContainerVolume/music"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rj8iy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainerVolume/music"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Center/MarginContainerVolume/music"]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="master" type="HSlider" parent="MarginContainerVolume/music/VBoxContainer"]
+[node name="master" type="HSlider" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 
-[node name="LabelMasterText" type="Label" parent="MarginContainerVolume/music/VBoxContainer"]
+[node name="LabelMasterText" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 30
 text = "Master
 "
 
-[node name="music" type="HSlider" parent="MarginContainerVolume/music/VBoxContainer"]
+[node name="music" type="HSlider" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 
-[node name="LabelMusText" type="Label" parent="MarginContainerVolume/music/VBoxContainer"]
+[node name="LabelMusText" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 30
 text = "Music"
 
-[node name="sound_FX" type="HSlider" parent="MarginContainerVolume/music/VBoxContainer"]
+[node name="sound_FX" type="HSlider" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 
-[node name="LabelTextSX" type="Label" parent="MarginContainerVolume/music/VBoxContainer"]
+[node name="LabelTextSX" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 30
 text = "Sound FX"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_ddt7k")
-
-[node name="GameOptionsName" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="GameOptionsName" type="MarginContainer" parent="Center"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -152.0
 offset_top = 64.0
 offset_right = 152.0
-offset_bottom = 128.0
+offset_bottom = 141.0
 grow_horizontal = 2
 
-[node name="Panel2" type="Sprite2D" parent="GameOptionsName"]
+[node name="Panel2" type="Sprite2D" parent="Center/GameOptionsName"]
 texture_filter = 1
 position = Vector2(149, 32.5)
 scale = Vector2(1, 0.745455)
@@ -182,7 +146,7 @@ texture = ExtResource("4_tpfft")
 region_enabled = true
 region_rect = Rect2(38, 44.5, 313, 165)
 
-[node name="Panel" type="Panel" parent="GameOptionsName/Panel2"]
+[node name="Panel" type="Panel" parent="Center/GameOptionsName/Panel2"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -194,18 +158,55 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fjinw")
 
-[node name="Label" type="Label" parent="GameOptionsName"]
+[node name="Label" type="Label" parent="Center/GameOptionsName"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Ocean With Stars
 options"
 horizontal_alignment = 1
 
-[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButt" to="." method="_on_back_butt_pressed"]
-[connection signal="toggled" from="MarginContainerVolume/screen/VBoxContainer2/FullScreen" to="." method="_on_full_screen_toggled"]
-[connection signal="toggled" from="MarginContainerVolume/screen/VBoxContainer2/BorderLess" to="." method="_on_border_less_toggled"]
-[connection signal="toggled" from="MarginContainerVolume/screen/VBoxContainer2/VSync" to="." method="_on_v_sync_toggled"]
-[connection signal="value_changed" from="MarginContainerVolume/music/VBoxContainer/master" to="." method="_on_volume_butt_value_changed"]
-[connection signal="value_changed" from="MarginContainerVolume/music/VBoxContainer/music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="MarginContainerVolume/music/VBoxContainer/sound_FX" to="." method="_on_sound_fx_value_changed"]
+[node name="Right" type="Node" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Right"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -249.0
+offset_top = 200.0
+offset_right = -8.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="Panel2" type="Panel" parent="Right/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rj8iy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Right/MarginContainer"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Mute
+Background Music  "
+
+[node name="BackButt" type="Button" parent="Right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="InstallSoundsButt" parent="." instance=ExtResource("4_m142g")]
+root_path = NodePath("..")
+
+[connection signal="toggled" from="Center/MarginContainerVolume/screen/VBoxContainer2/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="Center/MarginContainerVolume/screen/VBoxContainer2/BorderLess" to="." method="_on_border_less_toggled"]
+[connection signal="toggled" from="Center/MarginContainerVolume/screen/VBoxContainer2/VSync" to="." method="_on_v_sync_toggled"]
+[connection signal="value_changed" from="Center/MarginContainerVolume/music/VBoxContainer/master" to="." method="_on_volume_butt_value_changed"]
+[connection signal="value_changed" from="Center/MarginContainerVolume/music/VBoxContainer/music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Center/MarginContainerVolume/music/VBoxContainer/sound_FX" to="." method="_on_sound_fx_value_changed"]
+[connection signal="toggled" from="Right/MarginContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="Right/MarginContainer/VBoxContainer/BackButt" to="." method="_on_back_butt_pressed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvsue583i7nti"]
+[gd_scene load_steps=16 format=3 uid="uid://dvsue583i7nti"]
 
 [ext_resource type="Script" path="res://scripts/Menu/menu.gd" id="1_ue1rq"]
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_cgb5h"]
 [ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="3_85uj2"]
 [ext_resource type="Texture2D" uid="uid://ivyi41dsjsy6" path="res://sprites/interface/CancelButt.png" id="4_7kpge"]
+[ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="4_xlcl0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x88uf"]
 bg_color = Color(0, 0, 0, 0.227451)
@@ -120,6 +121,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("1_ue1rq")
 
+[node name="InstallSoundsButt" parent="." instance=ExtResource("4_xlcl0")]
+root_path = NodePath("..")
+
 [node name="BG" type="Node" parent="."]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BG"]
@@ -166,7 +170,7 @@ offset_right = 111.0
 offset_bottom = -8.0
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 30
-text = "v0.0.16
+text = "v0.0.18
 Beta"
 
 [node name="Right" type="Node" parent="."]

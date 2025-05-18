@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://6u3ra0vito2u"]
+[gd_scene load_steps=8 format=3 uid="uid://6u3ra0vito2u"]
 
 [ext_resource type="Script" path="res://scripts/Menu/achievements_menu.gd" id="1_aps1g"]
+[ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_oi2ox"]
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_tylam"]
 [ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="3_gl0er"]
 
@@ -22,8 +23,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aps1g")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
+[node name="InstallSoundsButt" parent="." instance=ExtResource("2_oi2ox")]
+root_path = NodePath("..")
+
+[node name="BG" type="Node" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BG"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,8 +39,7 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="Panel" type="Panel" parent="BG"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,8 +47,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wmayg")
 
-[node name="MarginContainerAchives" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="Center" type="Node" parent="."]
+
+[node name="MarginContainerAchives" type="MarginContainer" parent="Center"]
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
@@ -56,44 +61,28 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="MarginContainerAchives"]
+[node name="Panel" type="Panel" parent="Center/MarginContainerAchives"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ogh2o")
 
-[node name="Label" type="Label" parent="MarginContainerAchives"]
+[node name="Label" type="Label" parent="Center/MarginContainerAchives"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "open achievements"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 130.0
-offset_right = 235.0
-offset_bottom = 330.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="AM_BackButt" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Back"
-
-[node name="GameAchivesName" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="GameAchivesName" type="MarginContainer" parent="Center"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -152.0
 offset_top = 64.0
 offset_right = 152.0
-offset_bottom = 128.0
+offset_bottom = 141.0
 grow_horizontal = 2
 
-[node name="Panel2" type="Sprite2D" parent="GameAchivesName"]
+[node name="Panel2" type="Sprite2D" parent="Center/GameAchivesName"]
 texture_filter = 1
 position = Vector2(149, 32.5)
 scale = Vector2(1, 0.745455)
@@ -101,7 +90,7 @@ texture = ExtResource("3_gl0er")
 region_enabled = true
 region_rect = Rect2(38, 44.5, 313, 165)
 
-[node name="Panel" type="Panel" parent="GameAchivesName/Panel2"]
+[node name="Panel" type="Panel" parent="Center/GameAchivesName/Panel2"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -113,11 +102,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5xpnb")
 
-[node name="Label" type="Label" parent="GameAchivesName"]
+[node name="Label" type="Label" parent="Center/GameAchivesName"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Ocean With Stars
 achievements"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/AM_BackButt" to="." method="_on_am_back_butt_pressed"]
+[node name="Another" type="Node" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Another"]
+offset_left = 25.0
+offset_top = 130.0
+offset_right = 235.0
+offset_bottom = 330.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Another/MarginContainer"]
+layout_mode = 2
+
+[node name="AM_BackButt" type="Button" parent="Another/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[connection signal="pressed" from="Another/MarginContainer/VBoxContainer/AM_BackButt" to="." method="_on_am_back_butt_pressed"]

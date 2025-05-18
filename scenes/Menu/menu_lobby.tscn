@@ -250,7 +250,7 @@ text = "Authors"
 [node name="AchievementsButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Achievements"
+text = "Openings"
 
 [node name="debugButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2

@@ -65,12 +65,26 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ogh2o")
 
-[node name="Label" type="Label" parent="Center/MarginContainerAchives"]
+[node name="Menu_Items" type="OptionButton" parent="Center/MarginContainerAchives"]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 40
-text = "open achievements"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 30
+selected = 0
+item_count = 5
+popup/item_0/text = "achievements"
+popup/item_1/text = "Another"
+popup/item_1/id = 10
+popup/item_1/separator = true
+popup/item_2/text = "mobs"
+popup/item_2/id = 1
+popup/item_2/disabled = true
+popup/item_3/text = "texts"
+popup/item_3/id = 2
+popup/item_3/disabled = true
+popup/item_4/text = "info about Ocean With Stars"
+popup/item_4/id = 3
+popup/item_4/disabled = true
 
 [node name="GameAchivesName" type="MarginContainer" parent="Center"]
 anchors_preset = 5
@@ -125,4 +139,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Back"
 
+[connection signal="resized" from="Center/MarginContainerAchives/Menu_Items" to="." method="_on_menu_items_resized"]
 [connection signal="pressed" from="Another/MarginContainer/VBoxContainer/AM_BackButt" to="." method="_on_am_back_butt_pressed"]

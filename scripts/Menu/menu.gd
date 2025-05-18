@@ -46,7 +46,7 @@ func _on_authors_butt_pressed() -> void:
 func _on_achievements_butt_pressed() -> void:
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
-	get_tree().change_scene_to_file("res://scenes/Menu/achievements.tscn")
+	get_tree().change_scene_to_file("res://scenes/Menu/openings.tscn")
 
 func _on_debug_butt_pressed() -> void:
 	TransScreen.transition()

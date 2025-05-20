@@ -1,15 +1,16 @@
 extends Control
 
+@export
+var bus_name : String
 
-# Called when the node enters the scene tree for the first time.
+var bus_index: int
+
 func _ready() -> void:
-	pass # Replace with function body.
+	bus_index = AudioServer.get_bus_index(bus_name)
+	#volume_butt_value_changed.connect(_on_value_changed)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func _on_check_button_toggled(toggled_on):
+	AudioServer.set_bus_mute(0, toggled_on)
 
 func _on_full_screen_toggled(toggled_on):
 	if toggled_on == true:
@@ -48,13 +49,12 @@ func _on_sound_fx_value_changed(value: float) -> void:
 		2,
 		linear_to_db(value)
 	)
-	#volume(2, value/10)
+
 func volume(bus_index, value):
 	AudioServer.set_bus_volume_db(bus_index, value)
 
-
 func _on_save_butt_pressed() -> void:
-	pass # Replace with function body.
+	pass # Объявление функции сохранения переменных игрока.
 
 func _on_back_butt_pressed():
 	TransScreen.transition()

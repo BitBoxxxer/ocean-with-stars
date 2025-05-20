@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dturi2nmroquv"]
+[gd_scene load_steps=5 format=3 uid="uid://dturi2nmroquv"]
 
 [ext_resource type="Script" path="res://scripts/Player/WindowsInGame/window_in_game_menu.gd" id="1_sawe7"]
 [ext_resource type="VideoStream" path="res://visuals/video/galactik.ogv" id="2_8184i"]
+[ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="3_gwusq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qbvn"]
 bg_color = Color(0, 0, 0, 1)
@@ -15,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sawe7")
 
-[node name="PlayerMenuWindow" type="CanvasLayer" parent="."]
+[node name="PlayerMenuWindow" type="Node" parent="."]
 
 [node name="Panel" type="Panel" parent="PlayerMenuWindow"]
 anchors_preset = 15
@@ -70,6 +71,9 @@ text = "Сохраниться"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Вернуться в меню игры"
+
+[node name="InstallSoundsButt" parent="." instance=ExtResource("3_gwusq")]
+root_path = NodePath("..")
 
 [connection signal="pressed" from="PlayerMenuWindow/VBoxContainer/BackButt" to="." method="_on_back_butt_pressed"]
 [connection signal="pressed" from="PlayerMenuWindow/VBoxContainer/OptionsButt" to="." method="_on_options_butt_pressed"]

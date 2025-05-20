@@ -23,6 +23,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0p1fq")
 
+[node name="InstallSoundsButt" parent="." instance=ExtResource("4_m142g")]
+root_path = NodePath("..")
+
 [node name="BG" type="Node" parent="."]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BG"]
@@ -207,9 +210,6 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 30
 text = "Back"
-
-[node name="InstallSoundsButt" parent="." instance=ExtResource("4_m142g")]
-root_path = NodePath("..")
 
 [connection signal="toggled" from="Center/MarginContainerVolume/screen/VBoxContainer2/FullScreen" to="." method="_on_full_screen_toggled"]
 [connection signal="toggled" from="Center/MarginContainerVolume/screen/VBoxContainer2/BorderLess" to="." method="_on_border_less_toggled"]

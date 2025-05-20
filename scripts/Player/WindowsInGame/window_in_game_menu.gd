@@ -19,7 +19,7 @@ func _on_options_butt_pressed() -> void:
 
 
 func _on_save_butt_pressed() -> void:
-	pass # Replace with function body.
+	pass # Объявить фукнцию сохранения данных игрока.
 
 
 func _on_menu_butt_pressed() -> void:

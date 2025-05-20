@@ -7,7 +7,6 @@ var bus_index: int
 
 func _ready() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
-	#volume_butt_value_changed.connect(_on_value_changed)
 
 func _on_check_button_toggled(toggled_on):
 	AudioServer.set_bus_mute(0, toggled_on)

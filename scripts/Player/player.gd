@@ -13,7 +13,6 @@ func _ready():
 	DoorsManager.on_trigger_player_spawn.connect(_on_spawn)
 
 func _physics_process(delta): 
-	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 

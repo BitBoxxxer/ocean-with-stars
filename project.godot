@@ -15,6 +15,8 @@ config/name_localized={
 "ru": "Океан между звёзд"
 }
 run/main_scene="res://scenes/NewGame/download_screen.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="SaveLoadSystem"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 boot_splash/image="res://images/Shattered-Moon.png"
 config/icon="res://images/Shattered-Moon.png"
@@ -39,6 +41,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="Ocean with stars"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ez_dialogue/plugin.cfg")
 
 [file_customization]
 

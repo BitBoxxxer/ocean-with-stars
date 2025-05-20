@@ -11,7 +11,7 @@ func _ready():
 	assert(root_path != null, "Пустой путь к Интерфейсу звуков кнопок")
 	for i in sounds.keys():
 		sounds[i].stream = load("res://visuals/vis_mp3_butts/" + str(i) + ".mp3")
-		sounds[i].bus = &"Sfx"
+		sounds[i].bus = &"SFX"
 		add_child(sounds[i])
 	install_sounds(get_node(root_path))
 

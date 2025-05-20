@@ -34,10 +34,10 @@ motion_scale = Vector2(0.9, 1)
 motion_mirroring = Vector2(4800, 0)
 
 [node name="Panel" type="Panel" parent="ParallaxBackground/PL-4"]
-offset_left = -2408.0
-offset_top = 494.0
-offset_right = -2368.0
-offset_bottom = 534.0
+offset_left = -1652.0
+offset_top = 486.0
+offset_right = -1622.0
+offset_bottom = 515.0
 scale = Vector2(110.627, -67.3875)
 theme_override_styles/panel = SubResource("StyleBoxFlat_oh1vo")
 

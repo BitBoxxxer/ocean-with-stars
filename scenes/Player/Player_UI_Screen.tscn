@@ -105,6 +105,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_o2ims")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_qdahd")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_vrs6k")
 
+[node name="Button" type="Button" parent="HotBar"]
+offset_left = 58.0
+offset_top = 594.0
+offset_right = 126.0
+offset_bottom = 640.0
+text = "Save"
+
 [node name="Indicators" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="Indicators"]
@@ -124,7 +131,7 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="lives" type="RichTextLabel" parent="Indicators/Panel/VBoxContainer"]
+[node name="health" type="RichTextLabel" parent="Indicators/Panel/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
@@ -144,3 +151,5 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "exp"
 fit_content = true
+
+[connection signal="pressed" from="HotBar/Button" to="." method="_on_button_pressed"]

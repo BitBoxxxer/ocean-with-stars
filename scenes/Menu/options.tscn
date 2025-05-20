@@ -102,6 +102,9 @@ size_flags_vertical = 8
 
 [node name="master" type="HSlider" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.4
 
 [node name="LabelMasterText" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
@@ -112,6 +115,9 @@ text = "Master
 
 [node name="music" type="HSlider" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.4
 
 [node name="LabelMusText" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
@@ -121,6 +127,9 @@ text = "Music"
 
 [node name="sound_FX" type="HSlider" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.4
 
 [node name="LabelTextSX" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2

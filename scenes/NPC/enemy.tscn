@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmvinqfko8sny"]
+
+[ext_resource type="Script" path="res://scripts/NPC/enemy.gd" id="1_riink"]
+[ext_resource type="Texture2D" uid="uid://cp7vemrmjhsli" path="res://sprites/icon.svg" id="1_v8j12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox2a7"]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_riink")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 25)
+shape = SubResource("RectangleShape2D_ox2a7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.470588, 1, 1)
+position = Vector2(14, 25)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_v8j12")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 1.0
+offset_right = 28.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 15
+text = "money"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbyyhr6ksksue"]
 
-[ext_resource type="Script" path="res://scripts/Player/WindowsInGame/window_in_game_options.gd" id="1_n48yr"]
+[ext_resource type="Script" path="res://scripts/Menu/WindowsInGame/window_in_game_options.gd" id="1_n48yr"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_twrfy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiu7p"]

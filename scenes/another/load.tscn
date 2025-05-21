@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://p1ak8emnhg1s"]
 
-[ext_resource type="Script" path="res://scripts/another/load.gd" id="1_7gh3s"]
+[ext_resource type="Script" path="res://scripts/animations/load.gd" id="1_7gh3s"]
 [ext_resource type="VideoStream" path="res://visuals/video/galactik.ogv" id="2_spx5m"]
 [ext_resource type="VideoStream" path="res://visuals/video/88476fd44a47341a7c3bdf0da16b50f6.ogv" id="3_dtutr"]
 [ext_resource type="Texture2D" uid="uid://citnbug3aq6gr" path="res://sprites/animations/EYE ICON-Sheet.png" id="4_ka27n"]

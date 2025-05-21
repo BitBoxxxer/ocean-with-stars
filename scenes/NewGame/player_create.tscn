@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cc12wgo638gc5"]
 
 [ext_resource type="Script" path="res://scripts/Maps/tutorial_level.gd" id="1_gcxxe"]
-[ext_resource type="Script" path="res://scripts/Player/tasks/quest.gd" id="2_481je"]
+[ext_resource type="Script" path="res://scripts/another/tasks/quest.gd" id="2_481je"]
 [ext_resource type="Texture2D" uid="uid://demqrydid7i7m" path="res://visuals/achiv_icons/Hello.png" id="3_jonyf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdnuw"]

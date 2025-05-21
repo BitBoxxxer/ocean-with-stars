@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch0lhvw5dpxi1"]
 
-[ext_resource type="Script" path="res://install_sounds_butt.gd" id="1_6hbmv"]
+[ext_resource type="Script" path="res://scripts/another/install_sounds_butt.gd" id="1_6hbmv"]
 
 [node name="InstallSoundsButt" type="Node"]
 script = ExtResource("1_6hbmv")

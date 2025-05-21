@@ -32,12 +32,12 @@ func _on_v_sync_toggled(toggled_on):
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
-func _on_volume_butt_value_changed(value):
+func _on_master_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(
 		0,
 		linear_to_db(value)
 	)
-	#volume(0, value/10)
+
 func _on_music_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(
 		1,

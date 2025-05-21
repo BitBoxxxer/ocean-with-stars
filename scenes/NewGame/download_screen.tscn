@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckj0s8r3dvuak"]
 
-[ext_resource type="Script" path="res://download_screen.gd" id="1_mhoh7"]
+[ext_resource type="Script" path="res://scripts/animations/download_screen.gd" id="1_mhoh7"]
 [ext_resource type="VideoStream" path="res://visuals/video/for_mobile_screen.ogv" id="2_bbig8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlfyw"]

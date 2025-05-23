@@ -32,6 +32,8 @@ UI_Tasks="*res://scripts/another/tasks/tasks.gd"
 TransScreen="*res://scenes/another/BLACK_trans_screen.tscn"
 DoorsManager="*res://scripts/another/doors/doors_manager.gd"
 BgMusic="*res://scenes/another/bg_music.tscn"
+Specifications="*res://scripts/Player/specifications.gd"
+SaveLoadManager="*res://scripts/save_load.gd"
 
 [display]
 

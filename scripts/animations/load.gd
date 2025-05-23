@@ -18,6 +18,5 @@ func _on_timer_timeout():
 	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/menu_lobby.tscn")
 
-
 func _on_animation_player_animation_finished(anim_name):
 	animation_player.play("eye_see")

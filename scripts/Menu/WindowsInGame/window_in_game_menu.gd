@@ -19,7 +19,8 @@ func _on_options_butt_pressed() -> void:
 
 
 func _on_save_butt_pressed() -> void:
-	pass # Объявить фукнцию сохранения данных игрока.
+	SaveLoadManager.save_file()
+	print("игра успешно сохранена")
 
 
 func _on_menu_butt_pressed() -> void:

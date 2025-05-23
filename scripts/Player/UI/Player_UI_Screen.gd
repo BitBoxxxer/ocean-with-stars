@@ -4,14 +4,10 @@ extends Node
 @onready var money = $Indicators/Panel/VBoxContainer/money
 @onready var exp = $Indicators/Panel/VBoxContainer/exp
 
-var health_count = 20
-var money_count = 0
-var exp_count = 0
-
 func _process(_delta):
-	health.text = "health: " +str(health_count)
-	money.text = "money: " +str(money_count)
-	exp.text = "exp: " +str(exp_count)
+	health.text = "health: " +str(Specifications.health_count)
+	money.text = "money: " +str(Specifications.money_count)
+	exp.text = "exp: " +str(Specifications.exp_count)
 	
 	if Input.is_action_just_pressed("Menu"):
 		TransScreen.transition()
@@ -20,9 +16,9 @@ func _process(_delta):
 
 func save():
 	var save_dict = {
-		"health" : health_count,
-		"money" : money_count,
-		"exp" : exp_count,
+		"health" : Specifications.health_count,
+		"money" : Specifications.money_count,
+		"exp" : Specifications.exp_count,
 	}
 	return save_dict
 

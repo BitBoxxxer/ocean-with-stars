@@ -29,4 +29,3 @@ func _on_timer_timeout() -> void:
 	queue_free()
 	print(Specifications.health_count)
 	print(get_tree().current_scene.name)
-	SaveLoadManager.save_file()

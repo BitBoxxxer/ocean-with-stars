@@ -62,4 +62,4 @@ func _on_continue_butt_pressed() -> void:
 	SaveLoadManager.load_file()
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
-	get_tree().change_scene_to_file("res://scenes/NewGame/intro.tscn")
+	get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")

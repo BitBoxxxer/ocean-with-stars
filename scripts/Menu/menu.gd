@@ -59,7 +59,7 @@ func _on_new_game_butt_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/NewGame/intro.tscn")
 
 func _on_continue_butt_pressed() -> void:
-	SaveLoadManager.load_file()
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
-	get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")
+	get_tree().change_scene_to_file("res://scenes/Menu/select_load_world.tscn")
+	

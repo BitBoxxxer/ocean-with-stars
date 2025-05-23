@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpb1smn6sy48r"]
+
+[ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="1_b38w4"]
+[ext_resource type="Script" path="res://scripts/Menu/select_load_world.gd" id="1_et373"]
+[ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_vq5si"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01tmu"]
+bg_color = Color(0, 0, 0, 0.403922)
+
+[node name="SelectLoadWorld" type="Node2D"]
+script = ExtResource("1_et373")
+
+[node name="InstallSoundsButt" parent="." instance=ExtResource("2_vq5si")]
+root_path = NodePath("..")
+
+[node name="BG" type="Node" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_b38w4")
+autoplay = true
+expand = true
+loop = true
+
+[node name="PanelBlock" type="Panel" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_01tmu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BG"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -64.0
+offset_right = 111.0
+offset_bottom = -8.0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 30
+text = "v0.0.18
+Beta"
+
+[node name="Menu" type="Node" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.5
+offset_top = -81.0
+offset_right = 408.5
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="LoadButt1" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Загрузить 1-ый игровой мир"
+
+[node name="LoadButt2" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Загрузить 2-ой игровой мир"
+
+[node name="LoadButt3" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Загрузить 3-ий игровой мир"
+
+[node name="Button" type="Button" parent="Menu"]
+offset_left = 24.0
+offset_top = 11.0
+offset_right = 346.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 30
+text = "Вернуться в меню"
+
+[connection signal="pressed" from="Menu/VBoxContainer/LoadButt1" to="." method="_on_load_butt_1_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/LoadButt2" to="." method="_on_load_butt_2_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/LoadButt3" to="." method="_on_load_butt_3_pressed"]
+[connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]

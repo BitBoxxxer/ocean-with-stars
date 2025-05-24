@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _on_load_butt_1_pressed() -> void:
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
@@ -18,7 +17,6 @@ func _on_load_butt_3_pressed() -> void:
 	await TransScreen.on_transition_finish
 	SaveLoadManager.load_file(3)
 	get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")
-
 
 func _on_button_pressed() -> void:
 	TransScreen.transition()

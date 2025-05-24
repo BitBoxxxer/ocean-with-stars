@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b83mv8cs07kpu"]
+
+[ext_resource type="Script" path="res://scripts/another/warning_window.gd" id="1_a8dkp"]
+[ext_resource type="Texture2D" uid="uid://cp7vemrmjhsli" path="res://sprites/icon.svg" id="1_whocb"]
+
+[node name="Window" type="Window"]
+title = "Warning"
+initial_position = 1
+size = Vector2i(500, 200)
+theme_override_font_sizes/title_font_size = 30
+script = ExtResource("1_a8dkp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+texture = ExtResource("1_whocb")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

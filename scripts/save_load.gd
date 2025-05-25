@@ -31,7 +31,7 @@ func save_file():
 		3:
 			base_path = t_save_path
 		_:
-			print('Ошибка. Проверка 1')
+			print('Ошибка числа. Проверка saveManager -> save_file()')
 	
 	var save_game = FileAccess.open(base_path, FileAccess.WRITE)
 	var json_string = JSON.stringify(save(1))
@@ -49,7 +49,8 @@ func load_file(num):
 			base_path = t_save_path
 			Specifications.world_load_file_ID = 3
 	
-	if not FileAccess.file_exists(base_path):
+	if not FileAccess.file_exists(base_path): # если выбранная ячейка не содержит файла
+		Specifications.warning_window_type = 0
 		var save_game = FileAccess.open(base_path, FileAccess.WRITE)
 		var json_string = JSON.stringify(save(0))
 		save_game.store_line(json_string)

@@ -79,7 +79,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Загрузить 3-ий игровой мир"
 
-[node name="Button" type="Button" parent="Menu"]
+[node name="menu_butt" type="Button" parent="Menu"]
 offset_left = 24.0
 offset_top = 11.0
 offset_right = 346.0
@@ -88,12 +88,12 @@ theme_override_font_sizes/font_size = 30
 text = "Вернуться в меню"
 
 [node name="Window" parent="." instance=ExtResource("4_k1g85")]
-window_Title = "Пустой мир"
-window_Text = "Еще не существует данного мира"
+window_Title = "Пустая ячейка мира"
+window_Text = "Еще не существует данного мира. Вы желаете создать новый?"
 
 [connection signal="pressed" from="Menu/VBoxContainer/LoadButt1" to="." method="_on_load_butt_1_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/LoadButt2" to="." method="_on_load_butt_2_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/LoadButt3" to="." method="_on_load_butt_3_pressed"]
-[connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu/menu_butt" to="." method="_on_MENU_butt_pressed"]
 
 [editable path="Window"]

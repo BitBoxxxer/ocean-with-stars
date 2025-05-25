@@ -3,7 +3,6 @@ extends Window
 @export var window_Title: String
 @export var window_Text: String
 @export var butt_text_First = "OK"
-@export var butt_text_First_path_SceneName = "Path"
 @export var butt_text_Second = "Отменить"
 
 @onready var cancel_butt: Button = $HBoxContainer/CancelButt

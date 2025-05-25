@@ -1,11 +1,10 @@
 extends Node2D
 
+@onready var window: Window = $Window
 @onready var window_Title = "Window title"
 @onready var window_Text = "Hello"
 @onready var butt_text_First = "OK"
-@onready var butt_text_First_path_SceneName = "Path"
 @onready var butt_text_Second = "Отменить"
-@onready var window: Window = $Window
 
 func _ready() -> void:
 	window.visible = false
@@ -72,7 +71,7 @@ func _on_load_butt_3_pressed() -> void:
 		SaveLoadManager.load_file(3)
 		get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")
 
-func _on_button_pressed() -> void:
+func _on_MENU_butt_pressed() -> void:
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/menu_lobby.tscn")

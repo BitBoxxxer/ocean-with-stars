@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxl54007uixnq" path="res://scenes/Maps/animations/screen.tscn" id="6_ndjeq"]
 [ext_resource type="Texture2D" uid="uid://b8q44dpd316sf" path="res://sprites/maps/BG/base_houses.png" id="7_262wx"]
 [ext_resource type="PackedScene" uid="uid://do0elvda2fe3v" path="res://scenes/Player/camera_2d.tscn" id="7_foamy"]
-[ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/player.tscn" id="8_lptp0"]
+[ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/default_player.tscn" id="8_lptp0"]
 [ext_resource type="PackedScene" uid="uid://dghtlr5thufjy" path="res://scenes/another/door.tscn" id="9_umfrf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh1vo"]

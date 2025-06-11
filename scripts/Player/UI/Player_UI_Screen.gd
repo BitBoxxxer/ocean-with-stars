@@ -5,9 +5,9 @@ extends Node
 @onready var exp = $Indicators/Panel/VBoxContainer/exp
 
 func _process(_delta):
-	health.text = "health: " +str(Specifications.health_count)
-	money.text = "money: " +str(Specifications.money_count)
-	exp.text = "exp: " +str(Specifications.exp_count)
+	health.text = "жизней: " +str(Specifications.health_count)
+	money.text = "денег: " +str(Specifications.money_count)
+	exp.text = "опыта: " +str(Specifications.exp_count)
 	
 	if Input.is_action_just_pressed("Menu"):
 		TransScreen.transition()

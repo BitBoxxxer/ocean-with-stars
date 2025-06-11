@@ -50,22 +50,20 @@ grow_horizontal = 2
 layout_mode = 2
 
 [node name="TextEdit" type="TextEdit" parent="Center_screen/MarginContainer/VBoxContainer"]
-texture_filter = 1
 custom_minimum_size = Vector2(10, 50)
 layout_mode = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 30
-placeholder_text = "   What..? Oh.. Plz text u'r Name:"
+theme_override_font_sizes/font_size = 25
+placeholder_text = "   Напишите имя вашего героя"
 caret_blink = true
 caret_blink_interval = 1.5
 draw_spaces = true
 
 [node name="Button" type="Button" parent="Center_screen/MarginContainer/VBoxContainer"]
-texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Select"
+text = "Подтвердить"
 
 [node name="Quest" type="Node" parent="Center_screen"]
 script = ExtResource("2_481je")

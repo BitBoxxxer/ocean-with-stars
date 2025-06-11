@@ -87,7 +87,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uskgp")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -152.0
+offset_left = -122.0
 offset_top = 64.0
 offset_right = 152.0
 offset_bottom = 141.0
@@ -113,12 +113,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mynh7")
 
-[node name="Label" type="Label" parent="Center/GameName"]
+[node name="Label" type="RichTextLabel" parent="Center/GameName"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
 text = "Ocean With Stars
-author"
-horizontal_alignment = 1
+Страница автора"
+fit_content = true
 
 [node name="Another" type="Node" parent="."]
 
@@ -134,7 +135,7 @@ layout_mode = 2
 [node name="A_BackButt" type="Button" parent="Another/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Back"
+text = "Назад"
 
 [node name="Container" type="MarginContainer" parent="Another"]
 anchors_preset = 11
@@ -171,8 +172,8 @@ offset_left = 640.0
 offset_top = 424.0
 offset_right = 850.0
 offset_bottom = 472.0
-theme_override_font_sizes/font_size = 30
-text = "Read Next"
+theme_override_font_sizes/font_size = 25
+text = "Читать следующее"
 
 [node name="Label" type="Label" parent="Another"]
 offset_left = 600.0

@@ -45,11 +45,13 @@ grow_vertical = 2
 
 [node name="Title" type="RichTextLabel" parent="Tasks/Panel/VBoxContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Зайти на базу"
 
 [node name="Desc" type="RichTextLabel" parent="Tasks/Panel/VBoxContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Поздароваться с Вазгеном"
 
@@ -127,20 +129,20 @@ grow_vertical = 2
 [node name="health" type="RichTextLabel" parent="Indicators/Panel/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 40
-text = "lives"
+theme_override_font_sizes/normal_font_size = 30
+text = "Жизней"
 fit_content = true
 
 [node name="money" type="RichTextLabel" parent="Indicators/Panel/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 30
-text = "money"
+theme_override_font_sizes/normal_font_size = 20
+text = "денег"
 fit_content = true
 
 [node name="exp" type="RichTextLabel" parent="Indicators/Panel/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 30
-text = "exp"
+theme_override_font_sizes/normal_font_size = 20
+text = "опыт"
 fit_content = true

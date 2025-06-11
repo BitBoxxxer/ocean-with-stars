@@ -170,7 +170,7 @@ offset_right = 111.0
 offset_bottom = -8.0
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 30
-text = "v0.0.18
+text = "v0.8.2
 Beta"
 
 [node name="Right" type="Node" parent="."]
@@ -234,28 +234,28 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "Start Game"
+text = "Начать игру"
 
 [node name="OptionsButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Options
-"
+text = "Настройки"
 
 [node name="AuthorsButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Authors"
+text = "Автор"
 
 [node name="AchievementsButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Openings"
+text = "Достижения"
 
 [node name="debugButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "DEBUG_WORLD"
+text = "DEBUG_WORLD
+[will delete in future]"
 
 [node name="Left" type="Node" parent="."]
 
@@ -296,12 +296,12 @@ size_flags_vertical = 0
 [node name="NewGameButt" type="Button" parent="Left/FromStartButts/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "New Game"
+text = "Новая игра"
 
 [node name="ContinueButt" type="Button" parent="Left/FromStartButts/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Continue"
+text = "Продолжить"
 
 [connection signal="pressed" from="Right/BaseButts/VBoxContainer/StartButt" to="." method="_on_start_butt_pressed"]
 [connection signal="pressed" from="Right/BaseButts/VBoxContainer/OptionsButt" to="." method="_on_options_butt_pressed"]

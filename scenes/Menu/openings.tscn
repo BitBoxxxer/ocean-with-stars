@@ -72,17 +72,17 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 30
 selected = 0
 item_count = 5
-popup/item_0/text = "achievements"
-popup/item_1/text = "Another"
+popup/item_0/text = "Ачивки"
+popup/item_1/text = "Остальное"
 popup/item_1/id = 10
 popup/item_1/separator = true
-popup/item_2/text = "mobs"
+popup/item_2/text = "Мобы"
 popup/item_2/id = 1
 popup/item_2/disabled = true
-popup/item_3/text = "texts"
+popup/item_3/text = "Тексты"
 popup/item_3/id = 2
 popup/item_3/disabled = true
-popup/item_4/text = "info about Ocean With Stars"
+popup/item_4/text = "Информация о игре"
 popup/item_4/id = 3
 popup/item_4/disabled = true
 
@@ -120,7 +120,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5xpnb")
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Ocean With Stars
-achievements"
+Достижения"
 horizontal_alignment = 1
 
 [node name="Another" type="Node" parent="."]
@@ -137,7 +137,7 @@ layout_mode = 2
 [node name="AM_BackButt" type="Button" parent="Another/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Back"
+text = "Назад"
 
 [connection signal="resized" from="Center/MarginContainerAchives/Menu_Items" to="." method="_on_menu_items_resized"]
 [connection signal="pressed" from="Another/MarginContainer/VBoxContainer/AM_BackButt" to="." method="_on_am_back_butt_pressed"]

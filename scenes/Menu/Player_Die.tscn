@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://lbw5n3851pxp"]
+
+[ext_resource type="VideoStream" path="res://visuals/video/mind_Titan.ogv" id="1_w3cck"]
+[ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_c7tbm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ely3r"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="DeadMenuControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ely3r")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 300.0
+grow_horizontal = 2
+scale = Vector2(1.1184, 0.381029)
+stream = ExtResource("1_w3cck")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="InstallSoundsButt" parent="." instance=ExtResource("2_c7tbm")]
+root_path = NodePath("..")

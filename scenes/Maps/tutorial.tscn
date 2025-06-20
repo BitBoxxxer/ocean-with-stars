@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct1eyb68bx2xo"]
+[gd_scene load_steps=7 format=3 uid="uid://ct1eyb68bx2xo"]
 
 [ext_resource type="PackedScene" uid="uid://c65ld3gomaqil" path="res://scenes/Player/default_player.tscn" id="1_asx38"]
 [ext_resource type="Script" path="res://scripts/Player/camera_2d.gd" id="2_edhqf"]
 [ext_resource type="Texture2D" uid="uid://cp7vemrmjhsli" path="res://sprites/icon.svg" id="3_xpdni"]
 [ext_resource type="PackedScene" uid="uid://dghtlr5thufjy" path="res://scenes/another/door.tscn" id="4_wrtwl"]
 [ext_resource type="PackedScene" uid="uid://dmvinqfko8sny" path="res://scenes/NPC/money.tscn" id="5_e1g3d"]
+[ext_resource type="PackedScene" uid="uid://tjlbm8rqk4i2" path="res://scenes/NPC/enemy.tscn" id="6_gm4hp"]
 
 [node name="World" type="Node2D"]
 
@@ -54,4 +55,13 @@ texture = ExtResource("3_xpdni")
 [node name="Money" parent="." instance=ExtResource("5_e1g3d")]
 position = Vector2(79, 57)
 
+[node name="Enemy" parent="." instance=ExtResource("6_gm4hp")]
+position = Vector2(-42, 70)
+speed = null
+jump_velocity = null
+attack_damage = null
+attack_cooldown = null
+
+[editable path="Player"]
+[editable path="Player/UI"]
 [editable path="Doors/Door_Q"]

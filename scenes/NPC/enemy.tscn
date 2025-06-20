@@ -1,8 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://tjlbm8rqk4i2"]
+[gd_scene load_steps=6 format=3 uid="uid://tjlbm8rqk4i2"]
+
+[ext_resource type="Script" path="res://scenes/NPC/enemy.gd" id="1_s3p61"]
+[ext_resource type="Texture2D" uid="uid://cp7vemrmjhsli" path="res://sprites/icon.svg" id="2_tu1py"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ky3ms"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkpb1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ku1gs"]
+radius = 8.66737
+
 [node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_s3p61")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ky3ms")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AreaSee" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSee"]
+scale = Vector2(4.8, 4.8)
+shape = SubResource("CircleShape2D_mkpb1")
+
+[node name="AreaAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
+scale = Vector2(3.01092, 2.68232)
+shape = SubResource("CircleShape2D_ku1gs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -7.15256e-07)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("2_tu1py")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AreaSee" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AreaSee" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="AreaAttack" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AreaAttack" to="." method="_on_area_2d_body_exited"]

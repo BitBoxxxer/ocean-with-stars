@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm62ly8edfey3"]
+[gd_scene load_steps=8 format=3 uid="uid://cm62ly8edfey3"]
 
 [ext_resource type="Script" path="res://scripts/Player/UI/Player_UI_Screen.gd" id="1_jqhv8"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_myyon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijeob"]
 bg_color = Color(0, 0, 0, 0.745098)
@@ -19,6 +20,20 @@ bg_color = Color(0, 0, 0, 0.745098)
 
 [node name="Player_UI_Screen" type="Node"]
 script = ExtResource("1_jqhv8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("2_myyon")]
+offset_left = 2.0
+offset_top = -303.0
+offset_right = 302.0
+offset_bottom = -3.0
+pressed_color = Color(0.919806, 0.681081, 0.604442, 1)
+joystick_mode = 1
+action_left = "left"
+action_right = "right"
+action_up = "jump"
+action_down = "down"
 
 [node name="Tasks" type="CanvasLayer" parent="."]
 

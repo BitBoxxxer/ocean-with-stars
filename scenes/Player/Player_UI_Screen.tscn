@@ -24,10 +24,10 @@ script = ExtResource("1_jqhv8")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("2_myyon")]
-offset_left = 2.0
-offset_top = -303.0
-offset_right = 302.0
-offset_bottom = -3.0
+offset_left = 24.0
+offset_top = -240.0
+offset_right = 241.0
+offset_bottom = -28.0
 pressed_color = Color(0.919806, 0.681081, 0.604442, 1)
 joystick_mode = 1
 action_left = "left"
@@ -161,3 +161,5 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 20
 text = "опыт"
 fit_content = true
+
+[editable path="CanvasLayer/Virtual Joystick"]

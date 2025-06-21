@@ -57,11 +57,8 @@ position = Vector2(79, 57)
 
 [node name="Enemy" parent="." instance=ExtResource("6_gm4hp")]
 position = Vector2(-42, 70)
-speed = null
-jump_velocity = null
-attack_damage = null
-attack_cooldown = null
 
 [editable path="Player"]
 [editable path="Player/UI"]
+[editable path="Player/UI/CanvasLayer/Virtual Joystick"]
 [editable path="Doors/Door_Q"]

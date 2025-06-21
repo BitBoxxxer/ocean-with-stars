@@ -51,4 +51,6 @@ func take_damage(amount: int) -> void:
 
 func _die() -> void:
 	print("Игрок умер!")
+	TransScreen.transition()
+	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/Player_Die.tscn")

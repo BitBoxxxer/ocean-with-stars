@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://lbw5n3851pxp"]
+[gd_scene load_steps=5 format=3 uid="uid://lbw5n3851pxp"]
 
+[ext_resource type="Script" path="res://scenes/Menu/player_die.gd" id="1_lxi57"]
 [ext_resource type="VideoStream" path="res://visuals/video/mind_Titan.ogv" id="1_w3cck"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_c7tbm"]
 
@@ -13,6 +14,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lxi57")
+
+[node name="InstallSoundsButt" parent="." instance=ExtResource("2_c7tbm")]
+root_path = NodePath("..")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -40,5 +45,56 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="InstallSoundsButt" parent="." instance=ExtResource("2_c7tbm")]
-root_path = NodePath("..")
+[node name="Helpful_text" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -339.0
+offset_top = -165.0
+offset_right = 339.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Совет:[/pulse]
+[font_size=20][pulse freq=1.0 color=#ffffff40 ease=-2.0]
+Не позволяйте здоровью персонажа опускаться слишком низко !
+[color=#ffffff40] 
+Загрузить игру с последнего сохранения ?
+[/color]
+[/pulse][/font_size]"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -440.0
+offset_top = -220.0
+offset_right = 440.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Play_game" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Продолжить играть"
+
+[node name="Exit_menu" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Выйти в меню"
+
+[connection signal="pressed" from="HBoxContainer/Play_game" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="HBoxContainer/Exit_menu" to="." method="_on_exit_menu_pressed"]

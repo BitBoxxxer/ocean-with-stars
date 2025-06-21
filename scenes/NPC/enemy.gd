@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Enemy # Явно указываем class_name для лучшей организации
+class_name Enemy # хз наверное лучше задинамить, но мне лень, лучше буду срать кодом
 
 @export var speed: float = 70.0 # Скорость врага
 @export var jump_velocity: float = -400.0 # Если враг умеет прыгать
@@ -11,6 +11,7 @@ class_name Enemy # Явно указываем class_name для лучшей о
 @onready var area_see: Area2D = $AreaSee # Узел Area2D для обнаружения игрока
 @onready var area_attack: Area2D = $AreaAttack # Узел Area2D для зоны атаки
 @onready var attack_timer: Timer = $AttackTimer # Таймер для перезарядки атаки
+@onready var healse_Label: Label = $Health
 
 var player_in_sight: CharacterBody2D = null # Ссылка на игрока, если он в AreaSee
 var is_attacking: bool = false # Флаг, указывающий, атакует ли враг
@@ -25,6 +26,9 @@ func _ready() -> void:
 	# Устанавливаем время перезарядки атаки для таймера
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.one_shot = true # Таймер будет срабатывать один раз после запуска
+
+func _process(delta: float) -> void:
+	healse_Label.text = str(Specifications.enemy1_health_count)
 
 func _physics_process(delta: float) -> void:
 	# Применяем гравитацию
@@ -47,7 +51,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		# Игрока нет в зоне видимости, останавливаемся (или реализуем патрулирование)
 		velocity.x = move_toward(velocity.x, 0, speed) # Замедление до остановки
-	if 
 	move_and_slide()
 
 # --- Функции обнаружения и атаки ---

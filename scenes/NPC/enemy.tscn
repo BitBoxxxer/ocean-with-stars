@@ -1,9 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://tjlbm8rqk4i2"]
+[gd_scene load_steps=31 format=3 uid="uid://tjlbm8rqk4i2"]
 
 [ext_resource type="Script" path="res://scripts/NPC/enemy.gd" id="1_s3p61"]
 [ext_resource type="Texture2D" uid="uid://11emonvhqref" path="res://sprites/player/attack/blast02_orange.png" id="2_n06v5"]
 [ext_resource type="Texture2D" uid="uid://bgs83uwbgmg78" path="res://sprites/npc/ducky_2_spritesheet.png" id="3_abwkq"]
 [ext_resource type="Texture2D" uid="uid://b254il6o317e0" path="res://sprites/player/attack/blood.png" id="3_c7ge1"]
+[ext_resource type="PackedScene" uid="uid://ckooeb8jfj5nk" path="res://scenes/another/audio_stream_enemy_death.tscn" id="5_qu1eh"]
+[ext_resource type="AudioStream" uid="uid://c3rnwj1oi2h55" path="res://visuals/sound/npc/ekh.mp3" id="6_6gl1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ky3ms"]
 
@@ -209,6 +211,14 @@ offset_top = -26.0
 offset_right = 20.0
 offset_bottom = -11.0
 horizontal_alignment = 1
+
+[node name="AudioStreamEnemyDeath" parent="." instance=ExtResource("5_qu1eh")]
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="AudioStreamAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6gl1c")
+bus = &"SFX"
 
 [connection signal="body_entered" from="AreaSee" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AreaSee" to="." method="_on_area_2d_body_exited"]

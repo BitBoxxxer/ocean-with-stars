@@ -38,6 +38,7 @@ SaveLoadManager="*res://scripts/_GLOBALS/save_load.gd"
 SettingsManager="*res://scripts/_GLOBALS/SettingsManager.gd"
 ItemManager="*res://scripts/_GLOBALS/ItemManager.gd"
 AudioStreamPlayerDeath="*res://scenes/another/audio_stream_player_death.tscn"
+AudioStreamEnemyDeath="*res://scenes/another/audio_stream_enemy_death.tscn"
 
 [display]
 

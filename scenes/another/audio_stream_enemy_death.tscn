@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckooeb8jfj5nk"]
+
+[ext_resource type="AudioStream" uid="uid://c0gdyu43oxply" path="res://visuals/sound/npc/quack-reverb.mp3" id="1_nxlbf"]
+
+[node name="AudioStreamEnemyDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_nxlbf")
+volume_db = 3.0

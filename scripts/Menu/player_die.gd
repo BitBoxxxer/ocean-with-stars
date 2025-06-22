@@ -6,6 +6,7 @@ func _on_play_game_pressed() -> void:
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")
+	AudioStreamPlayerDeath.stop()
 
 
 func _on_exit_menu_pressed() -> void:

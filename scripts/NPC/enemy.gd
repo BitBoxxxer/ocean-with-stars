@@ -74,6 +74,7 @@ func _attack_player() -> void:
 		return
 	is_attacking = true
 	if animated_sprite:
+		$AudioStreamAttack.play()
 		animated_sprite.visible = true
 		animated_sprite.flip_h = (player_in_sight.global_position.x - global_position.x) < 0
 		animated_sprite.sprite_frames.set_animation_loop("attack", false)
@@ -100,6 +101,7 @@ func take_damage(amount: int) -> void:
 			get_tree().create_timer(0.2).timeout.connect(func(): animated_sprite.modulate = Color.WHITE)
 
 func _die() -> void:
+	AudioStreamEnemyDeath.play()
 	if is_dead: return
 	is_dead = true
 	set_physics_process(false)

@@ -3,7 +3,8 @@ extends CharacterBody2D
 class_name Player
 
 @export var SPEED = 100.0
-@export var JUMP_VELOCITY = -500
+@export var JUMP_VELOCITY = -350 
+@export var DOUBLE_JUMP_VELOCITY = -250  # Новая переменная для скорости двойного прыжка, можно настроить
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player = $"Player_Anim_Sprite/AnimationPlayer"
 @onready var animated_sprite = $"Player_Anim_Sprite"
@@ -16,8 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var attack_cooldown_time: float = 0.5
 
-# **Новое**: Ссылка на AudioStreamPlayer2D для звука смерти
-@onready var death_sound_player: AudioStreamPlayer2D = $DeathSoundPlayer # Убедись, что путь правильный
+var jumps_left = 2 # Отслеживаем, сколько прыжков осталось. 2 для двойного прыжка.
 
 func _ready():
 	animated_interact_sprite.visible = false
@@ -38,9 +38,18 @@ func _process(delta):
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	else:
+		# Если игрок на земле, сбросьте счетчик прыжков
+		jumps_left = 2
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	# Проверяем на прыжок
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			jumps_left = 1 # После первого прыжка остается один
+		elif jumps_left == 1: # Если не на земле и есть один прыжок в запасе (то есть, это второй прыжок)
+			velocity.y = DOUBLE_JUMP_VELOCITY # Используем скорость для двойного прыжка
+			jumps_left = 0 # Больше прыжков не осталось
 
 	if Input.is_action_just_pressed("attack") and attack_cooldown_timer.is_stopped():
 		_perform_attack()
@@ -75,8 +84,8 @@ func take_damage(amount: int) -> void:
 func _die() -> void:
 	print("Игрок умер!")
 	# **Новое**: Проиграть звук смерти перед переходом сцены
-	if death_sound_player:
-		death_sound_player.play()
+	if AudioStreamPlayerDeath:
+		AudioStreamPlayerDeath.play()
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/Player_Die.tscn")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CustomItem" load_steps=3 format=3 uid="uid://ct5r2gapa53i7"]
+
+[ext_resource type="Script" path="res://scripts/Player/inventory/Item.gd" id="1_0rdx8"]
+[ext_resource type="Texture2D" uid="uid://3xqcp3ht02ft" path="res://scenes/Items/Chicken.png" id="1_wkhm8"]
+
+[resource]
+script = ExtResource("1_0rdx8")
+id = "duck"
+item_name = "утенок"
+type = "QuestItem"
+description = "Отнесите ее Вазгену, оно ему срочно нужно !!!"
+inv_icon = ExtResource("1_wkhm8")
+max_stack_amount = 1
+price = 0.0

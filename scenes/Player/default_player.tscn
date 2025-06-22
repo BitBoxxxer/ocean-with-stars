@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c65ld3gomaqil"]
+[gd_scene load_steps=14 format=3 uid="uid://c65ld3gomaqil"]
 
 [ext_resource type="Script" path="res://scripts/Player/player.gd" id="1_urcyc"]
 [ext_resource type="Texture2D" uid="uid://bbjs3bsp3o7o" path="res://sprites/player/Player_SpritesOWS.png" id="2_rqbsr"]
 [ext_resource type="PackedScene" uid="uid://cm62ly8edfey3" path="res://scenes/Player/Player_UI_Screen.tscn" id="3_jo8o7"]
 [ext_resource type="Texture2D" uid="uid://rjty6qom1qwh" path="res://sprites/player/attack/hit06.png" id="4_sw1g4"]
-[ext_resource type="AudioStream" uid="uid://cssy1jdfqf8aa" path="res://visuals/sound/player/okh-zria-ia-tuda-polez.mp3" id="5_7lydw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpyx2"]
 size = Vector2(13, 32)
@@ -136,8 +135,5 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_ee0cr")
 }
-
-[node name="DeathSoundPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_7lydw")
 
 [connection signal="animation_finished" from="Player_Anim_Interact_Sprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

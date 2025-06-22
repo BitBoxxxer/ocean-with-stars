@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb1jl6hvi3f54"]
+
+[ext_resource type="AudioStream" uid="uid://bla1bgrre3tqb" path="res://visuals/sound/social-credit_751J4TV.mp3" id="1_23a7y"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_23a7y")

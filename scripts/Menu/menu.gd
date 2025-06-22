@@ -12,6 +12,8 @@ func _ready():
 	FromStartButts.visible = false
 	PanelBlock.visible = false
 	panel_block_left.visible = false
+	$Right/BaseButts/VBoxContainer/debugButt.visible = false # т.к. в официальном приложении не должно быть
+	$Right/BaseButts/VBoxContainer/AchievementsButt.visible = false # т.к. я не УСПЕВАЮ Т_Т
 
 func _on_start_butt_pressed():
 	PanelBlock.visible = true
@@ -56,7 +58,7 @@ func _on_debug_butt_pressed() -> void:
 func _on_new_game_butt_pressed() -> void:
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
-	get_tree().change_scene_to_file("res://scenes/NewGame/intro.tscn")
+	get_tree().change_scene_to_file("res://scenes/Menu/select_load_world.tscn")
 
 func _on_continue_butt_pressed() -> void:
 	TransScreen.transition()

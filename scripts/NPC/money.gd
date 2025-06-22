@@ -25,7 +25,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	Specifications.health_count += 1
+	Specifications.money_count += 1
 	queue_free()
 	print(Specifications.health_count)
 	print(get_tree().current_scene.name)

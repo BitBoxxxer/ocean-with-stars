@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://btj184v875xuh"]
+[gd_scene load_steps=6 format=3 uid="uid://btj184v875xuh"]
 
 [ext_resource type="Script" path="res://scripts/Maps/shop.gd" id="1_2d4bd"]
 [ext_resource type="Texture2D" uid="uid://bth26uo2qfy2t" path="res://sprites/picters/Pixel Art_ Toronto.png" id="1_u3821"]
 [ext_resource type="Texture2D" uid="uid://dy0gjy5gmcgai" path="res://sprites/maps/shop/Скетч_ВазгенаПродовца.png" id="2_6j1u0"]
+[ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="4_3emh3"]
+[ext_resource type="Texture2D" uid="uid://brdh5b8qsrael" path="res://sprites/interface/ICONS_white/White-Icon/MediumArrow-Left@0.5x.png" id="4_hf54g"]
 
 [node name="Shop" type="Node"]
 script = ExtResource("1_2d4bd")
@@ -38,5 +40,9 @@ offset_top = 8.0
 offset_right = 255.0
 offset_bottom = 108.0
 text = "Выйти"
+icon = ExtResource("4_hf54g")
+
+[node name="InstallSoundsButt" parent="." instance=ExtResource("4_3emh3")]
+root_path = NodePath("..")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

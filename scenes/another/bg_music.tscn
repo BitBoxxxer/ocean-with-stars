@@ -1,7 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://0kptc6abyiw"]
 
-[ext_resource type="AudioStream" uid="uid://b53mmwk672sts" path="res://visuals/sound/James_Quinn_-_le_carrousel_78237746.mp3" id="1_f7hos"]
+[ext_resource type="AudioStream" uid="uid://doxogtou01s2k" path="res://visuals/sound/Mao Zedong - Red Sun in the Sky.mp3" id="1_6wb0r"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_f7hos")
-bus = &"Music"
+stream = ExtResource("1_6wb0r")
+autoplay = true
+bus = &"BG Music"
+parameters/looping = true

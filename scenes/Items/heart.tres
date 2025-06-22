@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CustomItem" load_steps=4 format=3 uid="uid://oe5mc5p7em5u"]
+
+[ext_resource type="Script" path="res://scripts/Player/inventory/Item.gd" id="1_ksb7g"]
+[ext_resource type="Texture2D" uid="uid://demqrydid7i7m" path="res://visuals/achiv_icons/Hello.png" id="1_qwu5v"]
+[ext_resource type="PackedScene" uid="uid://bnujdkh00idoc" path="res://scenes/Maps/lobby.tscn" id="3_cm38o"]
+
+[resource]
+script = ExtResource("1_ksb7g")
+id = "heart"
+item_name = "Лечебница"
+type = "Food"
+description = "Лечебное сердце, даст вам дополнительное HP"
+inv_icon = ExtResource("1_qwu5v")
+world_scene = ExtResource("3_cm38o")
+max_stack_amount = 4
+price = 5.0

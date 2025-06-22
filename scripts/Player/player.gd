@@ -5,15 +5,35 @@ class_name Player
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -500
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var animation_player = $"Sprite2D/AnimationPlayer"
-@onready var animated_sprite = $"Sprite2D"
+@onready var animation_player = $"Player_Anim_Sprite/AnimationPlayer"
+@onready var animated_sprite = $"Player_Anim_Sprite"
+
+@onready var animated_interact_player = $"Player_Anim_Interact_Sprite/AnimationPlayer"
+@onready var animated_interact_sprite = $"Player_Anim_Interact_Sprite"
+
+@onready var attack_area: Area2D = $AttackArea
+@onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
+
+@export var attack_cooldown_time: float = 0.5
+
+# **Новое**: Ссылка на AudioStreamPlayer2D для звука смерти
+@onready var death_sound_player: AudioStreamPlayer2D = $DeathSoundPlayer # Убедись, что путь правильный
 
 func _ready():
+	animated_interact_sprite.visible = false
 	animation_player.play("RESET")
 	DoorsManager.on_trigger_player_spawn.connect(_on_spawn)
-	# Подключаемся к сигналу изменения здоровья из глобального файла (если нужно обновлять UI и т.д.)
-	# PlayerStats.player_health_changed.connect(_on_player_health_changed)
-	print("Игрок готов! Глобальное здоровье: ", Specifications.health_count)
+	print("Игрок готов. здоровье: ", Specifications.health_count)
+
+	attack_cooldown_timer.wait_time = attack_cooldown_time
+	attack_cooldown_timer.one_shot = true
+	attack_cooldown_timer.stop()
+
+	attack_area.set_deferred("monitoring", false)
+	attack_area.set_deferred("monitorable", false)
+
+func _process(delta):
+	animated_interact_sprite.flip_h = !animated_sprite.flip_h
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -21,6 +41,9 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	if Input.is_action_just_pressed("attack") and attack_cooldown_timer.is_stopped():
+		_perform_attack()
 
 	var current_speed = SPEED
 	if Input.is_action_pressed("run"):
@@ -33,6 +56,7 @@ func _physics_process(delta):
 			animation_player.play("walk")
 
 		animated_sprite.flip_h = direction < 0
+		animated_interact_sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed * delta)
 		if not animation_player.is_playing() or animation_player.current_animation != "RESET":
@@ -43,14 +67,45 @@ func _physics_process(delta):
 func _on_spawn(_direction: String):
 	global_position = position
 
-# --- Функция для получения урона, использующая глобальный файл ---
 func take_damage(amount: int) -> void:
-	Specifications.player_take_damage(amount) # Вызываем функцию из глобального файла
+	Specifications.player_take_damage(amount)
 	if Specifications.health_count <= 0:
-		_die() # Вызываем функцию смерти игрока
+		_die()
 
 func _die() -> void:
 	print("Игрок умер!")
+	# **Новое**: Проиграть звук смерти перед переходом сцены
+	if death_sound_player:
+		death_sound_player.play()
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Menu/Player_Die.tscn")
+
+func _perform_attack() -> void:
+	animated_interact_sprite.visible = true
+	print("Игрок выполняет атаку!")
+	animated_interact_player.play("attack")
+
+	# Enable AttackArea to detect enemies
+	attack_area.set_deferred("monitoring", true)
+	attack_area.set_deferred("monitorable", true)
+
+	await get_tree().create_timer(0.2).timeout # This is the duration the AttackArea is active
+
+	# Now get the overlapping bodies while monitoring is still active
+	var bodies_hit = attack_area.get_overlapping_bodies()
+	for body in bodies_hit:
+		if body is Enemy: # Using class_name Enemy
+			if body.has_method("take_damage"):
+				body.take_damage(Specifications.player_attack_damage)
+				print("Игрок нанес урон врагу!")
+	
+	# Disable AttackArea after checking for hits
+	attack_area.set_deferred("monitoring", false)
+	attack_area.set_deferred("monitorable", false)
+
+	attack_cooldown_timer.start()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	animated_interact_sprite.visible = false

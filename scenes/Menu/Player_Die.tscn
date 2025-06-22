@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://lbw5n3851pxp"]
 
-[ext_resource type="Script" path="res://scenes/Menu/player_die.gd" id="1_lxi57"]
+[ext_resource type="Script" path="res://scripts/Menu/player_die.gd" id="1_lxi57"]
 [ext_resource type="VideoStream" path="res://visuals/video/mind_Titan.ogv" id="1_w3cck"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_c7tbm"]
 

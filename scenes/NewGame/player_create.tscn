@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc12wgo638gc5"]
+[gd_scene load_steps=6 format=3 uid="uid://cc12wgo638gc5"]
 
 [ext_resource type="Script" path="res://scripts/Maps/tutorial_level.gd" id="1_gcxxe"]
 [ext_resource type="Script" path="res://scripts/another/tasks/quest.gd" id="2_481je"]
+[ext_resource type="Texture2D" uid="uid://diy4k87h13knt" path="res://sprites/interface/ICONS_white/White-Icon/Thumb-Up@0.5x.png" id="2_apyp6"]
 [ext_resource type="Texture2D" uid="uid://demqrydid7i7m" path="res://visuals/achiv_icons/Hello.png" id="3_jonyf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdnuw"]
@@ -63,7 +64,8 @@ draw_spaces = true
 [node name="Button" type="Button" parent="Center_screen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Подтвердить"
+text = "Подтвердить имя"
+icon = ExtResource("2_apyp6")
 
 [node name="Quest" type="Node" parent="Center_screen"]
 script = ExtResource("2_481je")

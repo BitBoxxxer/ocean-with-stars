@@ -1,10 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvsue583i7nti"]
+[gd_scene load_steps=21 format=3 uid="uid://dvsue583i7nti"]
 
 [ext_resource type="Script" path="res://scripts/Menu/menu.gd" id="1_ue1rq"]
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_cgb5h"]
 [ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="3_85uj2"]
 [ext_resource type="Texture2D" uid="uid://ivyi41dsjsy6" path="res://sprites/interface/CancelButt.png" id="4_7kpge"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="4_xlcl0"]
+[ext_resource type="Texture2D" uid="uid://dt14gq5bqcoi4" path="res://sprites/interface/ICONS_white/White-Icon/Exclamation@0.5x.png" id="5_i0gd7"]
+[ext_resource type="Texture2D" uid="uid://c13p3ja53w1c8" path="res://sprites/interface/ICONS_white/White-Icon/Gear@0.5x.png" id="6_cdqd4"]
+[ext_resource type="Texture2D" uid="uid://dgwwsgh2o445q" path="res://sprites/interface/ICONS_white/White-Icon/Info@0.5x.png" id="7_1waly"]
+[ext_resource type="Texture2D" uid="uid://dmnmn5ewo6hhy" path="res://sprites/interface/ICONS_white/White-Icon/SolidArrow-Left@0.5x.png" id="9_n1aiu"]
+[ext_resource type="Texture2D" uid="uid://dfbmn3siscvfo" path="res://sprites/interface/ICONS_white/White-Icon/SolidArrow-Right@0.5x.png" id="10_tgsr0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x88uf"]
 bg_color = Color(0, 0, 0, 0.227451)
@@ -233,22 +238,25 @@ theme_override_constants/separation = 5
 [node name="StartButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Начать игру"
+icon = ExtResource("5_i0gd7")
 
 [node name="OptionsButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Настройки"
+icon = ExtResource("6_cdqd4")
 
 [node name="AuthorsButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Автор"
+icon = ExtResource("7_1waly")
 
 [node name="AchievementsButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Достижения"
 
 [node name="debugButt" type="Button" parent="Right/BaseButts/VBoxContainer"]
@@ -295,13 +303,15 @@ size_flags_vertical = 0
 
 [node name="NewGameButt" type="Button" parent="Left/FromStartButts/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Новая игра"
+icon = ExtResource("9_n1aiu")
 
 [node name="ContinueButt" type="Button" parent="Left/FromStartButts/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Продолжить"
+icon = ExtResource("10_tgsr0")
 
 [connection signal="pressed" from="Right/BaseButts/VBoxContainer/StartButt" to="." method="_on_start_butt_pressed"]
 [connection signal="pressed" from="Right/BaseButts/VBoxContainer/OptionsButt" to="." method="_on_options_butt_pressed"]

@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dturi2nmroquv"]
+[gd_scene load_steps=9 format=3 uid="uid://dturi2nmroquv"]
 
 [ext_resource type="Script" path="res://scripts/Menu/WindowsInGame/window_in_game_menu.gd" id="1_sawe7"]
 [ext_resource type="VideoStream" path="res://visuals/video/galactik.ogv" id="2_8184i"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="3_gwusq"]
+[ext_resource type="Texture2D" uid="uid://brdh5b8qsrael" path="res://sprites/interface/ICONS_white/White-Icon/MediumArrow-Left@0.5x.png" id="4_27jm3"]
+[ext_resource type="Texture2D" uid="uid://c13p3ja53w1c8" path="res://sprites/interface/ICONS_white/White-Icon/Gear@0.5x.png" id="5_8y1lt"]
+[ext_resource type="Texture2D" uid="uid://6qy5qkecw3u5" path="res://sprites/interface/ICONS_white/White-Icon/Repeat-Right@0.5x.png" id="6_2l172"]
+[ext_resource type="Texture2D" uid="uid://ciy8sr5bp0wib" path="res://sprites/interface/ICONS_white/White-Icon/Exit@0.5x.png" id="7_7a5uq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qbvn"]
 bg_color = Color(0, 0, 0, 1)
@@ -15,6 +19,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sawe7")
+
+[node name="InstallSoundsButt" parent="." instance=ExtResource("3_gwusq")]
+root_path = NodePath("..")
 
 [node name="PlayerMenuWindow" type="Node" parent="."]
 
@@ -56,24 +63,25 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Вернуться"
+icon = ExtResource("4_27jm3")
 
 [node name="OptionsButt" type="Button" parent="PlayerMenuWindow/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Настройки"
+icon = ExtResource("5_8y1lt")
 
 [node name="SaveButt" type="Button" parent="PlayerMenuWindow/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Сохраниться"
+icon = ExtResource("6_2l172")
 
 [node name="MenuButt" type="Button" parent="PlayerMenuWindow/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Вернуться в меню игры"
-
-[node name="InstallSoundsButt" parent="." instance=ExtResource("3_gwusq")]
-root_path = NodePath("..")
+icon = ExtResource("7_7a5uq")
 
 [connection signal="pressed" from="PlayerMenuWindow/VBoxContainer/BackButt" to="." method="_on_back_butt_pressed"]
 [connection signal="pressed" from="PlayerMenuWindow/VBoxContainer/OptionsButt" to="." method="_on_options_butt_pressed"]

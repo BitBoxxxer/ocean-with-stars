@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://cibq5vmghykn0"]
+[gd_scene load_steps=6 format=3 uid="uid://cibq5vmghykn0"]
+
+[ext_resource type="Texture2D" uid="uid://b428qxmyp7f6a" path="res://sprites/maps/space/Nebula Blue.png" id="1_cmd7n"]
+[ext_resource type="Texture2D" uid="uid://bkfwqyu8nmlma" path="res://sprites/maps/space/Stars-Big_1_1_PC.png" id="2_mdvl5"]
+[ext_resource type="Texture2D" uid="uid://b2lrid8rmeddp" path="res://sprites/maps/space/Stars-Big_1_2_PC.png" id="3_qp7y5"]
+[ext_resource type="Texture2D" uid="uid://do55fj4u2o1lo" path="res://sprites/maps/space/Stars Small_1.png" id="4_6xd77"]
+[ext_resource type="Texture2D" uid="uid://bguugv18h6fpp" path="res://sprites/maps/space/Stars Small_2.png" id="5_3gn52"]
 
 [node name="Space" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="5L" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="NebulaBlue" type="Sprite2D" parent="ParallaxBackground/5L"]
+texture_filter = 1
+position = Vector2(503, 384)
+scale = Vector2(2.2583, 1.94727)
+texture = ExtResource("1_cmd7n")
+
+[node name="4L" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 1)
+
+[node name="Stars-big11Pc" type="Sprite2D" parent="ParallaxBackground/4L"]
+position = Vector2(486.5, 384)
+scale = Vector2(2.24194, 1.94092)
+texture = ExtResource("2_mdvl5")
+
+[node name="3L" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 1)
+
+[node name="Stars-big12Pc" type="Sprite2D" parent="ParallaxBackground/3L"]
+position = Vector2(506, 386.5)
+scale = Vector2(2.25, 1.92896)
+texture = ExtResource("3_qp7y5")
+
+[node name="2L" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="StarsSmall1" type="Sprite2D" parent="ParallaxBackground/2L"]
+position = Vector2(480, 402)
+scale = Vector2(2.23877, 1.92529)
+texture = ExtResource("4_6xd77")
+
+[node name="1L" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="StarsSmall2" type="Sprite2D" parent="ParallaxBackground/1L"]
+position = Vector2(487.5, 373)
+scale = Vector2(2.24243, 1.93262)
+texture = ExtResource("5_3gn52")

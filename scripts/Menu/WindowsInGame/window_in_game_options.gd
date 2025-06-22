@@ -1,62 +1,41 @@
 extends Control
 
-@export
-var bus_name : String
+@onready var master_mute_check_button: CheckButton = $Settings/TopRightButts/VBoxContainer/CheckButton
+@onready var master_volume_slider: HSlider = $Settings/SettingButts/music/VBoxContainer/master
+@onready var music_volume_slider: HSlider = $Settings/SettingButts/music/VBoxContainer/music
+@onready var sound_fx_volume_slider: HSlider = $Settings/SettingButts/music/VBoxContainer/sound_FX
 
-var bus_index: int
+@onready var fullscreen_check_button: CheckButton = $Settings/SettingButts/screen/VBoxContainer2/FullScreen
+@onready var borderless_check_button: CheckButton = $Settings/SettingButts/screen/VBoxContainer2/BorderLess
+@onready var vsync_check_button: CheckButton = $Settings/SettingButts/screen/VBoxContainer2/VSync
+
 
 func _ready() -> void:
-	bus_index = AudioServer.get_bus_index(bus_name)
-	#volume_butt_value_changed.connect(_on_value_changed)
+	# Инициализация UI элементов текущими значениями из SettingsManager
+	# Аудио
+	master_mute_check_button.button_pressed = SettingsManager.is_master_muted
+	master_volume_slider.value = SettingsManager.get_master_volume_linear()
+	music_volume_slider.value = SettingsManager.get_music_volume_linear()
+	sound_fx_volume_slider.value = SettingsManager.get_sfx_volume_linear()
 
-func _on_check_button_toggled(toggled_on):
-	AudioServer.set_bus_mute(0, toggled_on)
+	# Дисплей
+	fullscreen_check_button.button_pressed = SettingsManager.is_fullscreen
+	borderless_check_button.button_pressed = SettingsManager.is_borderless
+	vsync_check_button.button_pressed = SettingsManager.is_vsync_enabled
 
-func _on_full_screen_toggled(toggled_on):
-	if toggled_on == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	# Подключение сигналов UI элементов к методам SettingsManager
+	master_mute_check_button.toggled.connect(SettingsManager.set_master_mute)
+	master_volume_slider.value_changed.connect(SettingsManager.set_master_volume)
+	music_volume_slider.value_changed.connect(SettingsManager.set_music_volume)
+	sound_fx_volume_slider.value_changed.connect(SettingsManager.set_sfx_volume)
 
-
-func _on_border_less_toggled(toggled_on):
-	if toggled_on == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-
-func _on_v_sync_toggled(toggled_on):
-	if toggled_on == true:
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-	else:
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-
-func _on_master_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(
-		0,
-		linear_to_db(value)
-	)
-
-func _on_music_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(
-		1,
-		linear_to_db(value)
-	)
-	#volume(1, value/10)
-func _on_sound_fx_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(
-		2,
-		linear_to_db(value)
-	)
-
-func volume(bus_index, value):
-	AudioServer.set_bus_volume_db(bus_index, value)
-
-func _on_save_butt_pressed() -> void:
-	pass # Объявление функции сохранения переменных игрока.
+	fullscreen_check_button.toggled.connect(SettingsManager.set_fullscreen)
+	borderless_check_button.toggled.connect(SettingsManager.set_borderless)
+	vsync_check_button.toggled.connect(SettingsManager.set_vsync)
 
 func _on_back_butt_pressed():
+	# Сохранение настроек и переход на другую сцену
+	SettingsManager.save_settings()
 	TransScreen.transition()
 	await TransScreen.on_transition_finish
 	get_tree().change_scene_to_file("res://scenes/Player/WindowsInGame/window_in_game_menu.tscn")

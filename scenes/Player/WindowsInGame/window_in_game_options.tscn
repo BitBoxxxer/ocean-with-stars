@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbyyhr6ksksue"]
+[gd_scene load_steps=7 format=3 uid="uid://cbyyhr6ksksue"]
 
 [ext_resource type="Script" path="res://scripts/Menu/WindowsInGame/window_in_game_options.gd" id="1_n48yr"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_twrfy"]
+[ext_resource type="Texture2D" uid="uid://bl51j2tm50a5u" path="res://sprites/interface/ICONS_white/White-Icon/Music-Off@0.5x.png" id="3_jum12"]
+[ext_resource type="Texture2D" uid="uid://brdh5b8qsrael" path="res://sprites/interface/ICONS_white/White-Icon/MediumArrow-Left@0.5x.png" id="4_ivgpt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiu7p"]
 bg_color = Color(0, 0, 0, 1)
@@ -153,17 +155,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Мут музыки
 на заднем фоне"
-
-[node name="SaveButt" type="Button" parent="Settings/TopRightButts/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Сохранить"
+icon = ExtResource("3_jum12")
 
 [node name="BackButt" type="Button" parent="Settings/TopRightButts/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 30
 text = "Назад"
+icon = ExtResource("4_ivgpt")
 
 [connection signal="toggled" from="Settings/SettingButts/screen/VBoxContainer2/FullScreen" to="." method="_on_full_screen_toggled"]
 [connection signal="toggled" from="Settings/SettingButts/screen/VBoxContainer2/BorderLess" to="." method="_on_border_less_toggled"]
@@ -172,5 +171,4 @@ text = "Назад"
 [connection signal="value_changed" from="Settings/SettingButts/music/VBoxContainer/music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Settings/SettingButts/music/VBoxContainer/sound_FX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="toggled" from="Settings/TopRightButts/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
-[connection signal="pressed" from="Settings/TopRightButts/VBoxContainer/SaveButt" to="." method="_on_save_butt_pressed"]
 [connection signal="pressed" from="Settings/TopRightButts/VBoxContainer/BackButt" to="." method="_on_back_butt_pressed"]

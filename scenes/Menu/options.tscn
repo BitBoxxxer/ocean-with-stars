@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfap68057u8ma"]
+[gd_scene load_steps=10 format=3 uid="uid://bfap68057u8ma"]
 
 [ext_resource type="Script" path="res://scripts/Menu/options_menu.gd" id="1_0p1fq"]
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_uyerr"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="4_m142g"]
 [ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="4_tpfft"]
+[ext_resource type="Texture2D" uid="uid://bl51j2tm50a5u" path="res://sprites/interface/ICONS_white/White-Icon/Music-Off@0.5x.png" id="5_28bhc"]
+[ext_resource type="Texture2D" uid="uid://brdh5b8qsrael" path="res://sprites/interface/ICONS_white/White-Icon/MediumArrow-Left@0.5x.png" id="5_uw8x4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxtbb"]
 bg_color = Color(0, 0, 0, 0.6)
@@ -47,21 +49,43 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jxtbb")
 
+[node name="helper_panel" type="Panel" parent="BG"]
+offset_left = 914.0
+offset_top = 82.0
+offset_right = 1104.0
+offset_bottom = 189.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BG"]
+offset_left = 920.0
+offset_top = 86.0
+offset_right = 1099.0
+offset_bottom = 183.0
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0] Настройки сохраняются автоматически [/pulse]"
+
 [node name="Center" type="Node" parent="."]
 
-[node name="MarginContainerVolume" type="MarginContainer" parent="Center"]
+[node name="MarginContainerVolume" type="VBoxContainer" parent="Center"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -352.0
+offset_left = -561.0
+offset_top = -443.0
 offset_right = 300.0
-offset_bottom = -40.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
+
+[node name="RichTextLabel2" type="Label" parent="Center/MarginContainerVolume"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Экран
+---------------------------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="screen" type="MarginContainer" parent="Center/MarginContainerVolume"]
 layout_mode = 2
@@ -77,19 +101,26 @@ size_flags_vertical = 0
 
 [node name="FullScreen" type="CheckButton" parent="Center/MarginContainerVolume/screen/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "FullScreen"
+theme_override_font_sizes/font_size = 20
+text = "Полный экран"
 
 [node name="BorderLess" type="CheckButton" parent="Center/MarginContainerVolume/screen/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "BorderLess
-"
+theme_override_font_sizes/font_size = 20
+text = "Без границ"
 
 [node name="VSync" type="CheckButton" parent="Center/MarginContainerVolume/screen/VBoxContainer2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Верт. синхронизация"
+
+[node name="RichTextLabel" type="Label" parent="Center/MarginContainerVolume"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "VSync"
+text = "Звуки
+---------------------------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="music" type="MarginContainer" parent="Center/MarginContainerVolume"]
 layout_mode = 2
@@ -112,9 +143,8 @@ value = 0.4
 [node name="LabelMasterText" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "Master
-"
+theme_override_font_sizes/font_size = 20
+text = "Общий"
 
 [node name="music" type="HSlider" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
@@ -125,8 +155,8 @@ value = 0.4
 [node name="LabelMusText" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "Music"
+theme_override_font_sizes/font_size = 20
+text = "Музыка"
 
 [node name="sound_FX" type="HSlider" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
@@ -137,8 +167,8 @@ value = 0.4
 [node name="LabelTextSX" type="Label" parent="Center/MarginContainerVolume/music/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "Sound FX"
+theme_override_font_sizes/font_size = 20
+text = "Спец. эффекты"
 
 [node name="GameOptionsName" type="MarginContainer" parent="Center"]
 anchors_preset = 5
@@ -198,18 +228,21 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_rj8iy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Right/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="CheckButton" type="CheckButton" parent="Right/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Mute
-Background Music  "
+theme_override_font_sizes/font_size = 20
+text = "Мут музыки
+на заднем фоне"
+icon = ExtResource("5_28bhc")
 
 [node name="BackButt" type="Button" parent="Right/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 30
-text = "Back"
+text = "Назад"
+icon = ExtResource("5_uw8x4")
 
 [connection signal="toggled" from="Center/MarginContainerVolume/screen/VBoxContainer2/FullScreen" to="." method="_on_full_screen_toggled"]
 [connection signal="toggled" from="Center/MarginContainerVolume/screen/VBoxContainer2/BorderLess" to="." method="_on_border_less_toggled"]

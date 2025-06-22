@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b83mv8cs07kpu"]
+[gd_scene load_steps=4 format=3 uid="uid://b83mv8cs07kpu"]
 
 [ext_resource type="Script" path="res://scripts/another/warning_window.gd" id="1_a8dkp"]
+[ext_resource type="Texture2D" uid="uid://brdh5b8qsrael" path="res://sprites/interface/ICONS_white/White-Icon/MediumArrow-Left@0.5x.png" id="2_jrxxv"]
+[ext_resource type="Texture2D" uid="uid://rgpflkl5qsng" path="res://sprites/interface/ICONS_white/White-Icon/Cross@0.5x.png" id="3_mpab6"]
 
 [node name="Window" type="Window"]
 title = "Название окна"
@@ -47,10 +49,12 @@ theme_override_constants/separation = 100
 [node name="OKButt" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "OK"
+icon = ExtResource("2_jrxxv")
 
 [node name="CancelButt" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Отмена"
+icon = ExtResource("3_mpab6")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="HBoxContainer/OKButt" to="." method="_on_ok_butt_pressed"]

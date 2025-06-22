@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dph7i2tyh2tky"]
+[gd_scene load_steps=14 format=3 uid="uid://dph7i2tyh2tky"]
 
 [ext_resource type="Script" path="res://scripts/Menu/authors_menu.gd" id="1_m80we"]
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="2_d4tua"]
 [ext_resource type="VideoStream" path="res://visuals/video/batman_crazyyy.ogv" id="3_3l5uj"]
 [ext_resource type="Texture2D" uid="uid://c6e5fwlwh1lou" path="res://sprites/player/Inventory/Descargar conjunto de ventana furturistic hud gratis-Photoroom.png" id="4_tg2j4"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="5_aruwx"]
+[ext_resource type="Texture2D" uid="uid://brdh5b8qsrael" path="res://sprites/interface/ICONS_white/White-Icon/MediumArrow-Left@0.5x.png" id="5_hns60"]
+[ext_resource type="Texture2D" uid="uid://un3h62cdd1vd" path="res://sprites/interface/ICONS_white/White-Icon/Locker-Unlocked@0.5x.png" id="7_xacik"]
+[ext_resource type="Texture2D" uid="uid://goafqnfabjx0" path="res://sprites/interface/ICONS_white/White-Icon/disord.png" id="8_vbwfu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uskgp"]
 bg_color = Color(0, 0, 0, 0.6)
@@ -87,7 +90,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uskgp")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -122.0
+offset_left = -129.0
 offset_top = 64.0
 offset_right = 152.0
 offset_bottom = 141.0
@@ -95,8 +98,8 @@ grow_horizontal = 2
 
 [node name="Panel2" type="Sprite2D" parent="Center/GameName"]
 texture_filter = 1
-position = Vector2(149, 32.5)
-scale = Vector2(1, 0.745455)
+position = Vector2(140.75, 32.5)
+scale = Vector2(1.05272, 0.745455)
 texture = ExtResource("4_tg2j4")
 region_enabled = true
 region_rect = Rect2(38, 44.5, 313, 165)
@@ -105,10 +108,10 @@ region_rect = Rect2(38, 44.5, 313, 165)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -156.5
-offset_top = -82.5
-offset_right = -156.5
-offset_bottom = -82.5
+offset_left = -156.0
+offset_top = -82.0
+offset_right = -156.0
+offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mynh7")
@@ -136,6 +139,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Назад"
+icon = ExtResource("5_hns60")
 
 [node name="Container" type="MarginContainer" parent="Another"]
 anchors_preset = 11
@@ -174,6 +178,7 @@ offset_right = 850.0
 offset_bottom = 472.0
 theme_override_font_sizes/font_size = 25
 text = "Читать следующее"
+icon = ExtResource("7_xacik")
 
 [node name="Label" type="Label" parent="Another"]
 offset_left = 600.0
@@ -198,7 +203,15 @@ text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Связаться с авто
 [/pulse]"
 fit_content = true
 
-[node name="LinkButton" type="LinkButton" parent="Another/Links"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Another/Links"]
+layout_mode = 2
+
+[node name="Disord" type="Sprite2D" parent="Another/Links/HBoxContainer"]
+position = Vector2(179, 19)
+scale = Vector2(0.207031, 0.195313)
+texture = ExtResource("8_vbwfu")
+
+[node name="LinkButton" type="LinkButton" parent="Another/Links/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Канал Discord"

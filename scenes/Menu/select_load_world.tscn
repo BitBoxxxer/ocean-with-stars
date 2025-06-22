@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpb1smn6sy48r"]
+[gd_scene load_steps=8 format=3 uid="uid://dpb1smn6sy48r"]
 
 [ext_resource type="VideoStream" path="res://visuals/video/menu_space.ogv" id="1_b38w4"]
 [ext_resource type="Script" path="res://scripts/Menu/select_load_world.gd" id="1_et373"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_vq5si"]
 [ext_resource type="PackedScene" uid="uid://b83mv8cs07kpu" path="res://scenes/another/Warning_Window.tscn" id="4_k1g85"]
+[ext_resource type="Texture2D" uid="uid://bo2otpouglqcw" path="res://sprites/interface/ICONS_white/White-Icon/Tick@0.5x.png" id="4_yqe41"]
+[ext_resource type="Texture2D" uid="uid://ciy8sr5bp0wib" path="res://sprites/interface/ICONS_white/White-Icon/Exit@0.5x.png" id="5_h46vr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01tmu"]
 bg_color = Color(0, 0, 0, 0.403922)
@@ -55,16 +57,19 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Загрузить 1-ый игровой мир"
+icon = ExtResource("4_yqe41")
 
 [node name="LoadButt2" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Загрузить 2-ой игровой мир"
+icon = ExtResource("4_yqe41")
 
 [node name="LoadButt3" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Загрузить 3-ий игровой мир"
+icon = ExtResource("4_yqe41")
 
 [node name="menu_butt" type="Button" parent="Menu"]
 offset_left = 24.0
@@ -73,6 +78,7 @@ offset_right = 346.0
 offset_bottom = 90.0
 theme_override_font_sizes/font_size = 30
 text = "Вернуться в меню"
+icon = ExtResource("5_h46vr")
 
 [node name="Window" parent="." instance=ExtResource("4_k1g85")]
 window_Title = "Пустая ячейка мира"

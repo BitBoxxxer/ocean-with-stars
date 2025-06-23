@@ -65,6 +65,10 @@ folder_colors={
 "res://visuals/": "green"
 }
 
+[filesystem]
+
+import/fbx2gltf/enabled.android=true
+
 [gui]
 
 theme/custom_font="res://resources/theme/MyHandwriting.ttf"
@@ -140,4 +144,5 @@ attack={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true

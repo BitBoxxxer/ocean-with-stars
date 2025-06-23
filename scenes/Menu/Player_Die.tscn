@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://lbw5n3851pxp"]
+[gd_scene load_steps=8 format=3 uid="uid://lbw5n3851pxp"]
 
 [ext_resource type="Script" path="res://scripts/Menu/player_die.gd" id="1_lxi57"]
 [ext_resource type="VideoStream" path="res://visuals/video/mind_Titan.ogv" id="1_w3cck"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_c7tbm"]
+[ext_resource type="Texture2D" uid="uid://diy4k87h13knt" path="res://sprites/interface/ICONS_white/White-Icon/Thumb-Up@0.5x.png" id="4_0eb8e"]
+[ext_resource type="Texture2D" uid="uid://ocyeg0kx0dah" path="res://scenes/Menu/photo_2025-02-25_11-05-37.jpg" id="4_a1q0n"]
+[ext_resource type="Texture2D" uid="uid://bujpcrcq2xy6p" path="res://sprites/interface/ICONS_white/White-Icon/Thumb-Down@0.5x.png" id="5_gat5r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ely3r"]
 bg_color = Color(0, 0, 0, 1)
@@ -53,10 +56,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -339.0
-offset_top = -165.0
-offset_right = 339.0
-offset_bottom = 12.0
+offset_left = -192.0
+offset_top = -157.0
+offset_right = 486.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
@@ -90,11 +93,31 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Продолжить играть"
+icon = ExtResource("4_0eb8e")
 
 [node name="Exit_menu" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Выйти в меню"
+icon = ExtResource("5_gat5r")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 197.0
+offset_right = 289.0
+offset_bottom = 396.0
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Вазегн вами не гордится
+
+Если вы не можете сражаться:
+Бегите !
+Как Вазген с арбузом"
+
+[node name="Photo2025-02-2511-05-37" type="Sprite2D" parent="."]
+position = Vector2(120, 110.25)
+scale = Vector2(0.346667, 0.398219)
+texture = ExtResource("4_a1q0n")
 
 [connection signal="pressed" from="HBoxContainer/Play_game" to="." method="_on_play_game_pressed"]
 [connection signal="pressed" from="HBoxContainer/Exit_menu" to="." method="_on_exit_menu_pressed"]

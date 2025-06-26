@@ -13,7 +13,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Panel/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +29,7 @@ length = 1.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Panel/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,6 +55,45 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pds4w")
+
+[node name="Helpful_text" type="RichTextLabel" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.569444
+anchor_top = 0.0246914
+anchor_right = 0.806424
+anchor_bottom = 0.415123
+offset_right = -0.000976563
+offset_bottom = 69.0003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Подсказка:[/pulse]
+[font_size=20][pulse freq=1.0 color=#ffffff40 ease=-2.0]
+Никогда 
+не смотрите 
+в глаза 
+кротовому безграннику.
+[color=#ffffff40] 
+Последствия могут быть летальны
+[/color]
+[/pulse][/font_size]"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(1004, 120.25)
+scale = Vector2(1.25, 1.24219)
+texture = ExtResource("4_ka27n")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Sprite2D"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_3mrkr")
+}
 
 [node name="Dowload_text" type="RichTextLabel" parent="."]
 texture_filter = 1
@@ -95,37 +134,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 
-[node name="Helpful_text" type="RichTextLabel" parent="."]
-texture_filter = 1
-anchors_preset = -1
-anchor_left = 0.569444
-anchor_top = 0.0246914
-anchor_right = 0.806424
-anchor_bottom = 0.415123
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Подсказка:[/pulse]
-[font_size=20][pulse freq=1.0 color=#ffffff40 ease=-2.0]
-Никогда не смотрите в глаза кротовому безграннику.
-[color=#ffffff40] 
-Последствия могут быть летальны
-[/color]
-[/pulse][/font_size]"
-metadata/_edit_use_anchors_ = true
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1004, 120.25)
-scale = Vector2(1.25, 1.24219)
-texture = ExtResource("4_ka27n")
-hframes = 4
-vframes = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_3mrkr")
-}
-
+[connection signal="animation_finished" from="Panel/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

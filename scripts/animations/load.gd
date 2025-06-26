@@ -4,7 +4,7 @@ extends Node
 @onready var galactic: VideoStreamPlayer = $Galactic
 @onready var load: VideoStreamPlayer = $Load
 @onready var timer: Timer = $Timer
-@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Panel/Sprite2D/AnimationPlayer
 
 func _ready():
 	timer.start()

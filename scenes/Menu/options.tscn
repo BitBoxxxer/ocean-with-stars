@@ -199,6 +199,7 @@ offset_bottom = -82.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fjinw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Center/GameOptionsName"]
 layout_mode = 2

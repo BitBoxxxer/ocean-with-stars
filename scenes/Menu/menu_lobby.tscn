@@ -74,7 +74,7 @@ _data = {
 "RESET": SubResource("Animation_e6srx")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gh5d"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nawcj"]
 bg_color = Color(0, 0, 0, 0.756863)
 
 [sub_resource type="Animation" id="Animation_l7ua8"]
@@ -181,41 +181,39 @@ Beta"
 
 [node name="Right" type="Node" parent="."]
 
-[node name="GameName" type="MarginContainer" parent="Right"]
-anchors_preset = -1
-anchor_left = 0.161458
-anchor_top = 0.0987654
-anchor_right = 0.477431
-anchor_bottom = 0.197531
+[node name="GameName2" type="MarginContainer" parent="Right"]
+offset_left = 186.0
+offset_top = 73.0
+offset_right = 550.0
+offset_bottom = 149.0
 grow_horizontal = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="Panel2" type="Sprite2D" parent="Right/GameName"]
+[node name="Panel2" type="Sprite2D" parent="Right/GameName2"]
 texture_filter = 1
-position = Vector2(181.5, 32.5)
-scale = Vector2(1.50479, 0.745455)
+position = Vector2(140.75, 32.5)
+scale = Vector2(1.05272, 0.745455)
 texture = ExtResource("3_85uj2")
 region_enabled = true
-region_rect = Rect2(38, 425.955, 313, 165.545)
+region_rect = Rect2(38, 44.5, 313, 165)
 
-[node name="Panel" type="Panel" parent="Right/GameName/Panel2"]
+[node name="Panel" type="Panel" parent="Right/GameName2/Panel2"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -156.5
-offset_top = -82.5
-offset_right = -156.5
-offset_bottom = -82.5
+offset_left = -156.0
+offset_top = -82.0
+offset_right = -156.0
+offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5gh5d")
-metadata/_edit_use_anchors_ = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_nawcj")
 
-[node name="Label" type="Label" parent="Right/GameName"]
+[node name="Label" type="RichTextLabel" parent="Right/GameName2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
 text = "Ocean With Stars"
-horizontal_alignment = 1
+fit_content = true
 
 [node name="BaseButts" type="MarginContainer" parent="Right"]
 anchors_preset = -1

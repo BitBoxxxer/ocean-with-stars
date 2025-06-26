@@ -3,8 +3,8 @@ extends CharacterBody2D
 class_name Player
 
 @export var SPEED = 100.0
-@export var JUMP_VELOCITY = -350 
-@export var DOUBLE_JUMP_VELOCITY = -250  # Новая переменная для скорости двойного прыжка, можно настроить
+@export var JUMP_VELOCITY = -350
+@export var DOUBLE_JUMP_VELOCITY = -250 # Новая переменная для скорости двойного прыжка, можно настроить
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player = $"Player_Anim_Sprite/AnimationPlayer"
 @onready var animated_sprite = $"Player_Anim_Sprite"
@@ -18,6 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var attack_cooldown_time: float = 0.5
 
 var jumps_left = 2 # Отслеживаем, сколько прыжков осталось. 2 для двойного прыжка.
+var is_attacking = false # Новая переменная для отслеживания состояния атаки
 
 func _ready():
 	animated_interact_sprite.visible = false
@@ -29,8 +30,8 @@ func _ready():
 	attack_cooldown_timer.one_shot = true
 	attack_cooldown_timer.stop()
 
-	attack_area.set_deferred("monitoring", false)
-	attack_area.set_deferred("monitorable", false)
+	attack_area.body_entered.connect(_on_attack_area_body_entered)
+	attack_area.monitoring = false # Убедимся, что по умолчанию она выключена
 
 func _process(delta):
 	animated_interact_sprite.flip_h = !animated_sprite.flip_h
@@ -39,19 +40,18 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		# Если игрок на земле, сбросьте счетчик прыжков
 		jumps_left = 2
 
-	# Проверяем на прыжок
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			jumps_left = 1 # После первого прыжка остается один
-		elif jumps_left == 1: # Если не на земле и есть один прыжок в запасе (то есть, это второй прыжок)
-			velocity.y = DOUBLE_JUMP_VELOCITY # Используем скорость для двойного прыжка
-			jumps_left = 0 # Больше прыжков не осталось
+			jumps_left = 1
+		elif jumps_left == 1:
+			velocity.y = DOUBLE_JUMP_VELOCITY
+			jumps_left = 0
 
-	if Input.is_action_just_pressed("attack") and attack_cooldown_timer.is_stopped():
+	# Добавим проверку is_attacking, чтобы избежать повторных вызовов
+	if Input.is_action_just_pressed("attack") and attack_cooldown_timer.is_stopped() and not is_attacking:
 		_perform_attack()
 
 	var current_speed = SPEED
@@ -83,7 +83,6 @@ func take_damage(amount: int) -> void:
 
 func _die() -> void:
 	print("Игрок умер!")
-	# **Новое**: Проиграть звук смерти перед переходом сцены
 	if AudioStreamPlayerDeath:
 		AudioStreamPlayerDeath.play()
 	TransScreen.transition()
@@ -91,30 +90,24 @@ func _die() -> void:
 	get_tree().change_scene_to_file("res://scenes/Menu/Player_Die.tscn")
 
 func _perform_attack() -> void:
+	is_attacking = true # Устанавливаем флаг атаки
 	animated_interact_sprite.visible = true
 	print("Игрок выполняет атаку!")
 	animated_interact_player.play("attack")
 
-	# Enable AttackArea to detect enemies
-	attack_area.set_deferred("monitoring", true)
-	attack_area.set_deferred("monitorable", true)
+	attack_area.monitoring = true
 
-	await get_tree().create_timer(0.2).timeout # This is the duration the AttackArea is active
+	await get_tree().create_timer(0.2).timeout
 
-	# Now get the overlapping bodies while monitoring is still active
-	var bodies_hit = attack_area.get_overlapping_bodies()
-	for body in bodies_hit:
-		if body is Enemy: # Using class_name Enemy
-			if body.has_method("take_damage"):
-				body.take_damage(Specifications.player_attack_damage)
-				print("Игрок нанес урон врагу!")
-	
-	# Disable AttackArea after checking for hits
-	attack_area.set_deferred("monitoring", false)
-	attack_area.set_deferred("monitorable", false)
-
+	attack_area.monitoring = false
+	is_attacking = false # Сбрасываем флаг атаки
 	attack_cooldown_timer.start()
 
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if is_attacking and body is Enemy:
+		if body.has_method("take_damage"):
+			body.take_damage(Specifications.player_attack_damage)
+			print("Игрок нанес урон врагу!")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	animated_interact_sprite.visible = false

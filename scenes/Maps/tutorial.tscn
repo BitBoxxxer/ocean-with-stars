@@ -169,7 +169,6 @@ position = Vector2(81, 69)
 
 [node name="Player" parent="." instance=ExtResource("1_asx38")]
 position = Vector2(-158, 78)
-JUMP_VELOCITY = -200
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-8, -61)
@@ -217,6 +216,27 @@ tile_set = SubResource("TileSet_q3mng")
 
 [node name="Enemy2" parent="." instance=ExtResource("5_e1g3d")]
 position = Vector2(171, 21)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 23.0
+offset_top = -95.0
+offset_right = 261.0
+offset_bottom = -52.0
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Вы можете исполнять двойные прыжки
+(нажмите два раза на кнопку прыжка)"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -159.0
+offset_right = 102.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Над врагами вы видете их HP
+(Попробуйте ударить ЗЛУЮ утку)"
 
 [editable path="Player"]
 [editable path="Player/UI"]

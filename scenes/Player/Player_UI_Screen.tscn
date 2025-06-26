@@ -42,13 +42,16 @@ action_left = "left"
 action_right = "right"
 action_up = "jump"
 action_down = "down"
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1103.0
-offset_top = 216.0
-offset_right = 1139.0
-offset_bottom = 347.0
+anchors_preset = -1
+anchor_left = 0.957465
+anchor_top = 0.333333
+anchor_right = 0.988715
+anchor_bottom = 0.535494
 theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -58,10 +61,12 @@ alignment = 2
 
 [node name="run" type="Button" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 870.0
-offset_top = 558.0
-offset_right = 952.0
-offset_bottom = 644.0
+anchors_preset = -1
+anchor_left = 0.755208
+anchor_top = 0.861111
+anchor_right = 0.826389
+anchor_bottom = 0.993827
+metadata/_edit_use_anchors_ = true
 
 [node name="Frame13" type="Sprite2D" parent="CanvasLayer/run"]
 texture_filter = 1
@@ -69,12 +74,21 @@ position = Vector2(40.75, 43.75)
 scale = Vector2(2.48437, 2.54688)
 texture = ExtResource("6_w467r")
 
+[node name="Skillicon1429" type="Sprite2D" parent="CanvasLayer/run"]
+texture_filter = 1
+position = Vector2(40.25, 44)
+scale = Vector2(1.42187, 1.53125)
+texture = ExtResource("7_kadnc")
+
 [node name="interact" type="Button" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 915.0
-offset_top = 475.0
-offset_right = 986.0
-offset_bottom = 542.0
+anchors_preset = -1
+anchor_left = 0.794271
+anchor_top = 0.733025
+anchor_right = 0.855903
+anchor_bottom = 0.83642
+offset_top = -3.05176e-05
+metadata/_edit_use_anchors_ = true
 
 [node name="Frame01" type="Sprite2D" parent="CanvasLayer/interact"]
 texture_filter = 1
@@ -82,12 +96,20 @@ position = Vector2(36, 34)
 scale = Vector2(1.84375, 1.8125)
 texture = ExtResource("10_03yvx")
 
+[node name="Skillicon109" type="Sprite2D" parent="CanvasLayer/interact"]
+texture_filter = 1
+position = Vector2(36.5, 33)
+scale = Vector2(1.03125, 1.1875)
+texture = ExtResource("11_sksow")
+
 [node name="attack" type="Button" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 998.0
-offset_top = 506.0
-offset_right = 1134.0
-offset_bottom = 635.0
+anchors_preset = -1
+anchor_left = 0.866319
+anchor_top = 0.780864
+anchor_right = 0.984375
+anchor_bottom = 0.979938
+metadata/_edit_use_anchors_ = true
 
 [node name="Frame11" type="Sprite2D" parent="CanvasLayer/attack"]
 texture_filter = 1
@@ -95,12 +117,20 @@ position = Vector2(59.5, 57.5)
 scale = Vector2(3.78125, 3.59375)
 texture = ExtResource("5_tt542")
 
+[node name="Skillicon1426" type="Sprite2D" parent="CanvasLayer/attack"]
+texture_filter = 1
+position = Vector2(59, 59)
+scale = Vector2(2.4375, 2.5625)
+texture = ExtResource("6_j5b1v")
+
 [node name="jump" type="Button" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 1065.0
-offset_top = 419.0
-offset_right = 1141.0
-offset_bottom = 496.0
+anchors_preset = -1
+anchor_left = 0.924479
+anchor_top = 0.646605
+anchor_right = 0.990451
+anchor_bottom = 0.765432
+metadata/_edit_use_anchors_ = true
 
 [node name="Frame14" type="Sprite2D" parent="CanvasLayer/jump"]
 texture_filter = 1
@@ -108,29 +138,11 @@ position = Vector2(38, 39.5)
 scale = Vector2(2.25, 2.21875)
 texture = ExtResource("6_w467r")
 
-[node name="Skillicon1426" type="Sprite2D" parent="CanvasLayer"]
+[node name="Skillicon1414" type="Sprite2D" parent="CanvasLayer/jump"]
 texture_filter = 1
-position = Vector2(1057, 565)
-scale = Vector2(2.4375, 2.5625)
-texture = ExtResource("6_j5b1v")
-
-[node name="Skillicon1429" type="Sprite2D" parent="CanvasLayer"]
-texture_filter = 1
-position = Vector2(910.25, 602)
-scale = Vector2(1.42187, 1.53125)
-texture = ExtResource("7_kadnc")
-
-[node name="Skillicon1414" type="Sprite2D" parent="CanvasLayer"]
-texture_filter = 1
-position = Vector2(1103.5, 458.5)
+position = Vector2(38.5, 39.5)
 scale = Vector2(1.59375, 1.71875)
 texture = ExtResource("8_ybf05")
-
-[node name="Skillicon109" type="Sprite2D" parent="CanvasLayer"]
-texture_filter = 1
-position = Vector2(951.5, 508)
-scale = Vector2(1.03125, 1.1875)
-texture = ExtResource("11_sksow")
 
 [node name="Tasks" type="CanvasLayer" parent="."]
 
@@ -142,6 +154,7 @@ offset_left = -300.0
 offset_bottom = 200.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ijeob")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tasks/Panel"]
 layout_mode = 1
@@ -154,6 +167,7 @@ offset_right = -10.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="RichTextLabel" parent="Tasks/Panel/VBoxContainer"]
 texture_filter = 1
@@ -226,6 +240,7 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_vrs6k")
 offset_right = 300.0
 offset_bottom = 140.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_y7fpu")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Indicators/Panel"]
 layout_mode = 1
@@ -238,6 +253,7 @@ offset_right = -10.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="health" type="RichTextLabel" parent="Indicators/Panel/VBoxContainer"]
 texture_filter = 1

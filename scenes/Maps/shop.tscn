@@ -12,12 +12,13 @@ script = ExtResource("1_2d4bd")
 [node name="Sprites" type="Node" parent="."]
 
 [node name="Back_G" type="Sprite2D" parent="Sprites"]
-position = Vector2(638.5, 324)
-scale = Vector2(1.73506, 0.880435)
+texture_filter = 1
+position = Vector2(896, 320)
+scale = Vector2(2.6087, 1.04348)
 texture = ExtResource("1_u3821")
 
 [node name="Panel" type="Panel" parent="Sprites/Back_G"]
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -368.0
@@ -26,7 +27,6 @@ offset_right = -368.0
 offset_bottom = -368.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites"]
 texture_filter = 1

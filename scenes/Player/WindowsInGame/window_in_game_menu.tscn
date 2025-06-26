@@ -34,10 +34,9 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6qbvn")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="PlayerMenuWindow"]
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.477431
 anchor_bottom = 1.0
-offset_right = -602.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("2_8184i")
@@ -45,19 +44,18 @@ volume_db = -80.0
 autoplay = true
 expand = true
 loop = true
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerMenuWindow"]
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -518.0
-offset_top = 127.0
-offset_right = -16.0
-offset_bottom = -92.0
+anchors_preset = -1
+anchor_left = 0.550347
+anchor_top = 0.195988
+anchor_right = 0.986111
+anchor_bottom = 0.858025
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 20
+metadata/_edit_use_anchors_ = true
 
 [node name="BackButt" type="Button" parent="PlayerMenuWindow/VBoxContainer"]
 layout_mode = 2

@@ -4,7 +4,7 @@
 [ext_resource type="VideoStream" path="res://visuals/video/mind_Titan.ogv" id="1_w3cck"]
 [ext_resource type="PackedScene" uid="uid://ch0lhvw5dpxi1" path="res://scenes/another/install_sounds_butt.tscn" id="2_c7tbm"]
 [ext_resource type="Texture2D" uid="uid://diy4k87h13knt" path="res://sprites/interface/ICONS_white/White-Icon/Thumb-Up@0.5x.png" id="4_0eb8e"]
-[ext_resource type="Texture2D" uid="uid://ocyeg0kx0dah" path="res://scenes/Menu/photo_2025-02-25_11-05-37.jpg" id="4_a1q0n"]
+[ext_resource type="Texture2D" uid="uid://ocyeg0kx0dah" path="res://resources/photo_2025-02-25_11-05-37.jpg" id="4_a1q0n"]
 [ext_resource type="Texture2D" uid="uid://bujpcrcq2xy6p" path="res://sprites/interface/ICONS_white/White-Icon/Thumb-Down@0.5x.png" id="5_gat5r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ely3r"]

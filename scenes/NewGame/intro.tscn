@@ -173,21 +173,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yqwwb")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -352.5
-offset_top = -195.5
-offset_right = 352.5
-offset_bottom = 67.5
+anchors_preset = -1
+anchor_left = 0.19401
+anchor_top = 0.198302
+anchor_right = 0.80599
+anchor_bottom = 0.604167
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 text = "Сквозь эту пустоту Вы замечаете что-то впереди — [color=yellow]обломок[/color]. Ваше сердце замирает, 
 когда Вы осознаете, что это, вероятно, [color=yellow]часть Вашей станции[/color]. Вы поднимаете голову и видите, как куски металла медленно вращаются в безвоздушном пространстве, оставляя за собой следы искр и дыма. 
 \\nОбломок догорает, его поверхность покрыта черными пятнами, а красные языки пламени вырываются из щелей, как будто сама станция пытается вырваться из объятий [color=yellow]смерти[/color]."
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
 libraries = {
@@ -198,23 +195,26 @@ script = SubResource("GDScript_brl2o")
 
 [node name="SpeedButt" type="Button" parent="."]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 408.0
-offset_right = 509.0
-offset_bottom = 488.0
+anchor_left = 0.222222
+anchor_top = 0.62963
+anchor_right = 0.44184
+anchor_bottom = 0.753086
+offset_bottom = -3.05176e-05
 theme_override_font_sizes/font_size = 25
 text = "Ускорить текст"
 icon = ExtResource("3_5uyvm")
+metadata/_edit_use_anchors_ = true
 
 [node name="ContinueButt" type="Button" parent="."]
 layout_mode = 0
-offset_left = 624.0
-offset_top = 392.0
-offset_right = 883.0
-offset_bottom = 504.0
+anchor_left = 0.541667
+anchor_top = 0.604938
+anchor_right = 0.766493
+anchor_bottom = 0.777778
 theme_override_font_sizes/font_size = 25
 text = "Следующий текст?"
 icon = ExtResource("4_g6d4a")
+metadata/_edit_use_anchors_ = true
 
 [node name="CBAnimationPlayer" type="AnimationPlayer" parent="ContinueButt"]
 libraries = {
@@ -223,13 +223,15 @@ libraries = {
 
 [node name="LoadLvlButt" type="Button" parent="."]
 layout_mode = 0
-offset_left = 624.0
-offset_top = 392.0
-offset_right = 752.0
-offset_bottom = 504.0
+anchor_left = 0.541667
+anchor_top = 0.604938
+anchor_right = 0.706597
+anchor_bottom = 0.777778
+offset_right = -62.0
 theme_override_font_sizes/font_size = 25
 text = "Продолжить"
 icon = ExtResource("5_2iv7e")
+metadata/_edit_use_anchors_ = true
 
 [node name="TransScreen" parent="." instance=ExtResource("3_nidml")]
 visible = false

@@ -139,7 +139,6 @@ position = Vector2(-299, 0)
 scale = Vector2(2, 2)
 safe_margin = 0.001
 SPEED = 200.0
-JUMP_VELOCITY = -200
 
 [node name="Doors" type="Node" parent="."]
 

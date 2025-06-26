@@ -55,6 +55,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mlfyw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Mobile" type="Node" parent="Animations"]
 
@@ -62,32 +63,30 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mlfyw")
 wait_time = 2.0
 
 [node name="mobile_screen" type="VideoStreamPlayer" parent="Animations/Mobile"]
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.233507
+anchor_right = 0.792535
 anchor_bottom = 1.0
-offset_left = -307.0
-offset_right = 337.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 stream = ExtResource("2_bbig8")
 expand = true
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Animations/Mobile"]
 texture_filter = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -96.0
-offset_right = 370.0
-offset_bottom = -7.0
+anchors_preset = -1
+anchor_left = 0.00694444
+anchor_top = 0.851852
+anchor_right = 0.321181
+anchor_bottom = 0.989198
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 visible_characters = 0
 visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Mobile/RichTextLabel"]
 libraries = {

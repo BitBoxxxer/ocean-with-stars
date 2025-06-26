@@ -50,34 +50,35 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jxtbb")
 
 [node name="helper_panel" type="Panel" parent="BG"]
-offset_left = 914.0
-offset_top = 82.0
-offset_right = 1104.0
-offset_bottom = 189.0
+anchors_preset = -1
+anchor_left = 0.793403
+anchor_top = 0.126543
+anchor_right = 0.958333
+anchor_bottom = 0.291667
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BG"]
-offset_left = 920.0
-offset_top = 86.0
-offset_right = 1099.0
-offset_bottom = 183.0
+anchors_preset = -1
+anchor_left = 0.798611
+anchor_top = 0.132716
+anchor_right = 0.953993
+anchor_bottom = 0.282407
 bbcode_enabled = true
 text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0] Настройки сохраняются автоматически [/pulse]"
+metadata/_edit_use_anchors_ = true
 
 [node name="Center" type="Node" parent="."]
 
 [node name="MarginContainerVolume" type="VBoxContainer" parent="Center"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -561.0
-offset_top = -443.0
-offset_right = 300.0
-offset_bottom = -15.0
+anchors_preset = -1
+anchor_left = 0.0130208
+anchor_top = 0.316358
+anchor_right = 0.760417
+anchor_bottom = 0.976852
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel2" type="Label" parent="Center/MarginContainerVolume"]
 layout_mode = 2
@@ -171,14 +172,13 @@ theme_override_font_sizes/font_size = 20
 text = "Спец. эффекты"
 
 [node name="GameOptionsName" type="MarginContainer" parent="Center"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -152.0
-offset_top = 64.0
-offset_right = 152.0
-offset_bottom = 141.0
+anchors_preset = -1
+anchor_left = 0.368056
+anchor_top = 0.0987654
+anchor_right = 0.631944
+anchor_bottom = 0.217593
 grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Sprite2D" parent="Center/GameOptionsName"]
 texture_filter = 1
@@ -210,17 +210,15 @@ horizontal_alignment = 1
 [node name="Right" type="Node" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="Right"]
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -249.0
-offset_top = 200.0
-offset_right = -8.0
-offset_bottom = -40.0
+anchors_preset = -1
+anchor_left = 0.783854
+anchor_top = 0.308642
+anchor_right = 0.993056
+anchor_bottom = 0.938272
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Right/MarginContainer"]
 layout_mode = 2

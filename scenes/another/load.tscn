@@ -58,15 +58,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_pds4w")
 
 [node name="Dowload_text" type="RichTextLabel" parent="."]
 texture_filter = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -38.0
-offset_right = -128.0
-offset_bottom = -8.0
+anchors_preset = -1
+anchor_left = 0.756944
+anchor_top = 0.941358
+anchor_right = 0.888889
+anchor_bottom = 0.987654
 grow_horizontal = 0
 grow_vertical = 0
 bbcode_enabled = true
@@ -74,23 +70,20 @@ text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Загрузка контен�
 metadata/_edit_use_anchors_ = true
 
 [node name="Galactic" type="VideoStreamPlayer" parent="."]
-offset_right = 633.0
-offset_bottom = 648.0
+anchors_preset = -1
+anchor_right = 0.549479
+anchor_bottom = 1.0
 stream = ExtResource("2_spx5m")
 expand = true
 loop = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Load" type="VideoStreamPlayer" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -114.0
-offset_right = -8.0
-offset_bottom = -8.0
+anchors_preset = -1
+anchor_left = 0.902778
+anchor_top = 0.824074
+anchor_right = 0.993056
+anchor_bottom = 0.987654
 grow_horizontal = 0
 grow_vertical = 0
 stream = ExtResource("3_dtutr")
@@ -104,10 +97,11 @@ wait_time = 10.0
 
 [node name="Helpful_text" type="RichTextLabel" parent="."]
 texture_filter = 1
-offset_left = 656.0
-offset_top = 16.0
-offset_right = 929.0
-offset_bottom = 269.0
+anchors_preset = -1
+anchor_left = 0.569444
+anchor_top = 0.0246914
+anchor_right = 0.806424
+anchor_bottom = 0.415123
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Подсказка:[/pulse]
@@ -117,6 +111,7 @@ text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Подсказка:[/pulse]
 Последствия могут быть летальны
 [/color]
 [/pulse][/font_size]"
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

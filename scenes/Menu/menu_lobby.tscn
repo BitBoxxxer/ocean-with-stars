@@ -141,6 +141,7 @@ stream = ExtResource("2_cgb5h")
 autoplay = true
 expand = true
 loop = true
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelBlock" type="Panel" parent="BG"]
 anchors_preset = 15
@@ -151,14 +152,14 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x88uf")
 
 [node name="PanelBlockLeft" type="Panel" parent="BG"]
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.668403
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -382.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hak1o")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/PanelBlockLeft"]
 libraries = {
@@ -181,14 +182,13 @@ Beta"
 [node name="Right" type="Node" parent="."]
 
 [node name="GameName" type="MarginContainer" parent="Right"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -390.0
-offset_top = 64.0
-offset_right = -26.0
-offset_bottom = 128.0
+anchors_preset = -1
+anchor_left = 0.161458
+anchor_top = 0.0987654
+anchor_right = 0.477431
+anchor_bottom = 0.197531
 grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Sprite2D" parent="Right/GameName"]
 texture_filter = 1
@@ -217,17 +217,16 @@ text = "Ocean With Stars"
 horizontal_alignment = 1
 
 [node name="BaseButts" type="MarginContainer" parent="Right"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.0
-offset_top = -66.0
-offset_right = 1.0
-offset_bottom = 224.0
+anchors_preset = -1
+anchor_left = 0.138889
+anchor_top = 0.391975
+anchor_right = 0.500868
+anchor_bottom = 0.851852
+offset_top = 4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Right/BaseButts"]
 layout_mode = 2
@@ -268,15 +267,17 @@ text = "DEBUG_WORLD
 [node name="Left" type="Node" parent="."]
 
 [node name="Hide_Butt" type="MenuButton" parent="Left"]
-offset_left = 1075.0
-offset_top = 80.0
-offset_right = 1134.0
-offset_bottom = 140.0
+anchors_preset = -1
+anchor_left = 0.93316
+anchor_top = 0.123457
+anchor_right = 0.984375
+anchor_bottom = 0.216049
 theme_override_colors/font_pressed_color = Color(0.65098, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 icon = ExtResource("4_7kpge")
 alignment = 2
 expand_icon = true
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Left"]
 reset_on_save = false
